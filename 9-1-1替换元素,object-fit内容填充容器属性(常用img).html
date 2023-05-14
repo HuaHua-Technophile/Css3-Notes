@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>9-1-1替换元素,object-fit内容填充容器属性</title>
+    <style>
+      img {
+        width: 95vw;
+        height: 20vh;
+        margin: 10px;
+      }
+      .fill {
+        object-fit: fill;
+      }
+      .contain {
+        object-fit: contain;
+      }
+      .cover {
+        object-fit: cover;
+      }
+      .none {
+        object-fit: none;
+      }
+      .scale-down {
+        object-fit: scale-down;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      在HTML中，替换元素（replaced
+      element）是指那些内容不受CSS控制，而是由外部对象或者浏览器自身渲染的元素。¹²³
+      简单来说，它们的内容不会受到当前文档样式的影响。CSS可以影响替换元素的位置，但不会影响到替换元素自身的内容。
+    </p>
+    <p>
+      典型的替换元素有：
+      <li>img，它的内容由src属性指定的图像文件替换。</li>
+      <li>video，它的内容由src属性或者source子元素指定的视频文件替换。</li>
+      <li>embed，它的内容由src属性指定的外部资源替换。</li>
+      <li>iframe，它的内容由src属性指定的另一个文档替换。</li>
+      <li>object，它的内容由data属性或者param子元素指定的外部资源替换。</li>
+      <li>applet，它的内容由code属性或者param子元素指定的Java小程序替换。</li>
+      <li>canvas，它的内容由JavaScript代码绘制的图形替换。</li>
+      <li>audio，它的内容由src属性或者source子元素指定的音频文件替换。</li>
+      <li>option，它的内容由value属性指定的文本替换。</li>
+      <li>input type="image"，它的内容由src属性指定的图像文件替换。</li>
+    </p>
+    <p>
+      object-fit属性是CSS中的一个属性，它用来指定一个替换元素（比如img或者video）的内容如何适应其容器的大小。
+    </p>
+    <p>
+      <li>
+        fill，这是默认值。内容会被拉伸或者压缩来填充容器的大小，不保持原有的宽高比。
+      </li>
+      <li>
+        contain，内容会保持原有的宽高比，同时缩放到适合容器的大小。如果容器的宽高比和内容的不一致，内容会在容器中居中显示，并留有空白。
+      </li>
+      <li>
+        cover，内容会保持原有的宽高比，同时缩放到填满容器的大小。如果容器的宽高比和内容的不一致，内容会被裁剪以适应容器。
+      </li>
+      <li>none，内容不会被缩放，保持原有的大小。</li>
+      <li>scale-down，内容会被缩放到none或者contain中较小的那个尺寸。</li>
+    </p>
+    <img src="./img/科技蜂巢7860x4320.jpg" class="fill" />
+    <img src="./img/科技蜂巢7860x4320.jpg" class="contain" />
+    <img src="./img/科技蜂巢7860x4320.jpg" class="cover" />
+    <img src="./img/科技蜂巢7860x4320.jpg" class="none" />
+    <img src="./img/科技蜂巢7860x4320.jpg" class="scale-down" />
+  </body>
+</html>

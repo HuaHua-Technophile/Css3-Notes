@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "JiNiTaiMei"; /* Project id 3907591 */
+  /* Color fonts */
+  src: url("iconfont.woff2?t=1676960453686") format("woff2");
+}
+
+.JiNiTaiMei {
+  font-family: "JiNiTaiMei" !important;
+  /* font-size: 16px; */
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.Jimei:before {
+  content: "\e600";
+}
+
+.Jitaiyang:before {
+  content: "\e78b";
+}
+
+.Jiji:before {
+  content: "\e693";
+}

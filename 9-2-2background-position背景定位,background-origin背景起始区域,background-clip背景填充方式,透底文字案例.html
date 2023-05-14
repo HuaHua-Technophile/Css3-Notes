@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>
+      9-2-2background-position背景定位,background-origin背景起始区域,background-clip背景填充方式,透底文字案例
+    </title>
+    <style>
+      .background-position {
+        /* 使用关键字 */
+        background-position: center; /* 居中对齐 */
+        background-position: top right; /* 顶部右侧对齐 */
+        /* 使用百分比 */
+        background-position: 25% 75%; /* 距离左侧25%，距离顶部75% */
+        /* 使用长度 */
+        background-position: 10px 20px; /* 距离左侧10px，距离顶部20px */
+        /* 使用 calc() 表达式 */
+        background-position: calc(100%-50px) calc(100%-50px); /* 距离右侧和底部各50px */
+        background-position: left top, right bottom; /* 第一个背景层左上对齐，第二个背景层右下对齐 */
+      }
+      .background-origin {
+        background-origin: border-box; /*背景图片的起始位置相对于 border 区域 */
+        background-origin: padding-box; /* 背景图片的起始位置相对于 padding 区域*/
+        background-origin: content-box; /*背景图片的起始位置相对于 content 区域 */
+        background-origin: border-box, content-box; /* 第一个背景层相对于 border 区域，第二个背景层相对于 content 区域 */
+      }
+      .background-clip {
+        /* 使用 border-box */
+        background-clip: border-box; /* 背景从边框区域向外裁剪 */
+        /* 使用 padding-box */
+        background-clip: padding-box; /* 背景从内边距区域向外裁剪 */
+        /* 使用 content-box */
+        background-clip: content-box; /* 背景从内容区域向外裁剪 */
+        /* 使用 text */
+        background-clip: text; /* 背景被裁剪成文字的前景色 */
+      }
+    </style>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .father1,
+      .father2 {
+        display: flex;
+        justify-content: space-between;
+      }
+      .father1 > div {
+        color: pink;
+        flex: 1;
+        margin: 5px;
+        height: 30vh;
+        padding: 10px;
+        border: 10px orange dashed;
+        box-sizing: border-box;
+        background-image: url(./img/huaweilogo.jpg);
+        background-repeat: no-repeat;
+      }
+      .O-border-box {
+        background-origin: border-box; /*从]]]]]]]]]]]]]]]]]]]]*/
+      }
+      .O-padding-box {
+        background-origin: padding-box; /*默认值*/
+      }
+      .O-content-box {
+        background-origin: content-box;
+      }
+      .father2 > div {
+        color: skyblue;
+        flex: 1;
+        margin: 5px;
+        height: 30vh;
+        padding: 10px;
+        border: 10px orange dashed;
+        box-sizing: border-box;
+        background-image: url(./img/huaweilogo.jpg);
+        background-repeat: no-repeat;
+      }
+      .C-border-box {
+        background-clip: border-box; /*默认值*/
+      }
+      .C-padding-box {
+        background-clip: padding-box; /*只在内边距范围内,右下方边框不涉及*/
+      }
+      .C-content-box {
+        background-clip: content-box; /*只在内容范围内,内边距区域不涉及*/
+      }
+      .C-text {
+        font-size: 30px;
+        font-weight: bolder;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent !important; /*只在文本范围内*/
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <li>
+        background-position 可以使用关键字、百分比、长度或 calc()
+        表达式来定义坐标
+      </li>
+      <li>
+        background-position 的默认值是 0%
+        0%，表示背景图像的左上角与容器的左上角对齐
+      </li>
+      <li>
+        background-position
+        可以指定一个或多个值，如果指定多个值，表示有多个背景层，用逗号分隔
+      </li>
+    </p>
+    <p>
+      <li>
+        background-origin 是 CSS 属性，用于规定背景图片的原点位置的背景相对区域
+      </li>
+      <li>
+        background-origin 可以使用三个值：border-box、padding-box 或 content-box
+      </li>
+      <li>
+        background-origin 的默认值是 padding-box，表示背景图片的起始位置相对于
+        padding 区域
+      </li>
+      <li>
+        background-origin 可以和
+        background-position、background-size、background-clip
+        等属性配合使用，实现不同的背景效果
+      </li>
+    </p>
+    <div class="father1">
+      <div class="O-border-box">background-origin: border-box; /*默认值*/</div>
+      <div class="O-padding-box">background-origin: padding-box;</div>
+      <div class="O-content-box">background-origin: content-box;</div>
+    </div>
+    <p>
+      <li>
+        background-clip 是 CSS
+        属性，用于设置元素的背景（背景图片或颜色）是否延伸到边框下面
+      </li>
+      <li>
+        background-clip 可以使用四个值：border-box、padding-box、content-box 或
+        text
+      </li>
+      <li>
+        background-clip 的默认值是
+        border-box，表示背景从边框区域向外裁剪，超出部分将被裁剪掉。
+      </li>
+      <li>
+        background-clip 可以和
+        background-origin、background-position、background-size
+        等属性配合使用，实现不同的背景效果
+      </li>
+    </p>
+    <div class="father2">
+      <div class="C-border-box">background-clip: border-box; /*默认值*/</div>
+      <div class="C-padding-box">background-clip: padding-box;</div>
+      <div class="C-content-box">background-clip: content-box;</div>
+      <div class="C-text">
+        background-clip: text; -webkit-background-clip: text; color:
+        transparent;
+      </div>
+    </div>
+  </body>
+</html>

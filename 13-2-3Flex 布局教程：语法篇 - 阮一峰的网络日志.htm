@@ -1,0 +1,1167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0057)https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html -->
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  id="sixapart-standard"
+  lang="zh-CN"
+  data-darkreader-mode="dynamic"
+  data-darkreader-scheme="dark"
+>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style class="darkreader darkreader--fallback" media="screen"></style>
+    <style class="darkreader darkreader--text" media="screen">
+      *:not(
+          pre,
+          pre *,
+          code,
+          .far,
+          .fa,
+          .glyphicon,
+          [class*="vjs-"],
+          .fab,
+          .fa-github,
+          .fas,
+          .material-icons,
+          .icofont,
+          .typcn,
+          mu,
+          [class*="mu-"],
+          .glyphicon,
+          .icon
+        ) {
+        font-family: MiSans !important;
+      }
+    </style>
+    <style class="darkreader darkreader--invert" media="screen">
+      .jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, #bit-notification-bar-iframe, ::-webkit-calendar-picker-indicator
+      {
+        filter: invert(100%) hue-rotate(180deg) contrast(90%) !important;
+      }
+    </style>
+    <style class="darkreader darkreader--inline" media="screen">
+      [data-darkreader-inline-bgcolor] {
+        background-color: var(--darkreader-inline-bgcolor) !important;
+      }
+      [data-darkreader-inline-bgimage] {
+        background-image: var(--darkreader-inline-bgimage) !important;
+      }
+      [data-darkreader-inline-border] {
+        border-color: var(--darkreader-inline-border) !important;
+      }
+      [data-darkreader-inline-border-bottom] {
+        border-bottom-color: var(--darkreader-inline-border-bottom) !important;
+      }
+      [data-darkreader-inline-border-left] {
+        border-left-color: var(--darkreader-inline-border-left) !important;
+      }
+      [data-darkreader-inline-border-right] {
+        border-right-color: var(--darkreader-inline-border-right) !important;
+      }
+      [data-darkreader-inline-border-top] {
+        border-top-color: var(--darkreader-inline-border-top) !important;
+      }
+      [data-darkreader-inline-boxshadow] {
+        box-shadow: var(--darkreader-inline-boxshadow) !important;
+      }
+      [data-darkreader-inline-color] {
+        color: var(--darkreader-inline-color) !important;
+      }
+      [data-darkreader-inline-fill] {
+        fill: var(--darkreader-inline-fill) !important;
+      }
+      [data-darkreader-inline-stroke] {
+        stroke: var(--darkreader-inline-stroke) !important;
+      }
+      [data-darkreader-inline-outline] {
+        outline-color: var(--darkreader-inline-outline) !important;
+      }
+      [data-darkreader-inline-stopcolor] {
+        stop-color: var(--darkreader-inline-stopcolor) !important;
+      }
+    </style>
+    <style class="darkreader darkreader--variables" media="screen">
+      :root {
+        --darkreader-neutral-background: #131516;
+        --darkreader-neutral-text: #d8d4cf;
+        --darkreader-selection-background: #004daa;
+        --darkreader-selection-text: #e8e6e3;
+      }
+    </style>
+    <style class="darkreader darkreader--root-vars" media="screen"></style>
+    <style class="darkreader darkreader--user-agent" media="screen">
+      html {
+        background-color: #181a1b !important;
+      }
+      html {
+        color-scheme: dark !important;
+      }
+      html,
+      body {
+        background-color: #181a1b;
+      }
+      html,
+      body {
+        border-color: #736b5e;
+        color: #e8e6e3;
+      }
+      a {
+        color: #3391ff;
+      }
+      table {
+        border-color: #545b5e;
+      }
+      ::placeholder {
+        color: #b2aba1;
+      }
+      input:-webkit-autofill,
+      textarea:-webkit-autofill,
+      select:-webkit-autofill {
+        background-color: #404400 !important;
+        color: #e8e6e3 !important;
+      }
+      ::-webkit-scrollbar {
+        background-color: #202324;
+        color: #aba499;
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: #454a4d;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: #575e62;
+      }
+      ::-webkit-scrollbar-thumb:active {
+        background-color: #484e51;
+      }
+      ::-webkit-scrollbar-corner {
+        background-color: #181a1b;
+      }
+      ::selection {
+        background-color: #004daa !important;
+        color: #e8e6e3 !important;
+      }
+      ::-moz-selection {
+        background-color: #004daa !important;
+        color: #e8e6e3 !important;
+      }
+    </style>
+
+    <meta name="generator" content="Movable Type  5.2.2" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--link rel="stylesheet" href="http://www.ruanyifeng.com/blog/styles.css" type="text/css" /-->
+    <link rel="start" href="https://www.ruanyifeng.com/blog/" title="Home" />
+    <link
+      rel="alternate"
+      type="application/atom+xml"
+      title="Recent Entries"
+      href="https://feeds.feedburner.com/ruanyifeng"
+    />
+    <script src="https://hm.baidu.com/hm.js?f89e0235da0841927341497d774e7b15"></script>
+    <script
+      async=""
+      src="https://www.google-analytics.com/analytics.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/mt.js.下载"
+    ></script>
+    <script
+      type="text/javascript"
+      src="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/advertisements.js.下载"
+    ></script>
+    <!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html">
+<dc:title>如何选择开源许可证？</dc:title>
+<dc:description>如何为代码选择开源许可证，这是一个问题。...</dc:description>
+<dc:creator>阮一峰</dc:creator>
+<dc:date>2011-05-02T01:26:31+08:00</dc:date>
+<license rdf:resource="http://creativecommons.org/licenses/by-nc-nd/3.0/" />
+</Work>
+<License rdf:about="http://creativecommons.org/licenses/by-nc-nd/3.0/">
+</License>
+</rdf:RDF>
+-->
+
+    <style>
+      body {
+        background-color: #f5f5d5;
+      }
+
+      #container::before {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background: rgba(0, 0, 0, 0.1);
+        text-align: center;
+        content: "本站显示不正常，可能因为您使用了广告拦截器。";
+      }
+    </style>
+    <style class="darkreader darkreader--sync" media="screen"></style>
+    <script>
+      function loadjscssfile(filename, filetype) {
+        if (filetype == "js") {
+          //if filename is a external JavaScript file
+          var fileref = document.createElement("script");
+          fileref.setAttribute("type", "text/javascript");
+          fileref.setAttribute("src", filename);
+        } else if (filetype == "css") {
+          //if filename is an external CSS file
+          var fileref = document.createElement("link");
+          fileref.setAttribute("rel", "stylesheet");
+          fileref.setAttribute("type", "text/css");
+          fileref.setAttribute("href", filename);
+        }
+        if (typeof fileref != "undefined")
+          document.getElementsByTagName("head")[0].appendChild(fileref);
+      }
+      //loadjscssfile("http://www.ruanyifeng.com/blog/styles.css", "css");
+      loadjscssfile(
+        "/static/themes/theme_scrapbook/theme_scrapbook.min.css",
+        "css"
+      );
+
+      function checker() {
+        if (/mobile|android/i.test(navigator.userAgent)) return;
+        window.comments && window.comments.setAttribute("style", "!important");
+        // var img = document.querySelector('img[src^="http://www.ruanyifeng.com/blog/images"]');
+        var img = document.querySelector(
+          'a > img[src*="wangbase.com/blogimg/asset/"]'
+        );
+        var isAdblocker = typeof adblock === "undefined";
+        if (
+          /*isAdblocker || */
+          (img && window.getComputedStyle(img).display === "none") ||
+          (img && window.getComputedStyle(img.parentElement).display === "none")
+        ) {
+          var sponsor = document.querySelector("#main-content");
+          var prompt = document.createElement("div");
+          prompt.style =
+            "border: 1px solid #c6c6c6;border-radius: 4px;background-color: #f5f2f0;padding: 15px; font-size: 14px;";
+          prompt.innerHTML =
+            "<p>您使用了广告拦截器，导致本站内容无法显示。</p><p>请将 www.ruanyifeng.com 加入白名单，解除广告屏蔽后，刷新页面。谢谢。</p>";
+          sponsor.parentNode.replaceChild(prompt, sponsor);
+          // document.querySelector('#main-content').innerHTML = '';
+        }
+      }
+
+      setTimeout(checker, 1000);
+    </script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/theme_scrapbook.min.css"
+    />
+    <style class="darkreader darkreader--sync" media="screen"></style>
+    <script
+      type="text/javascript"
+      charset="UTF-8"
+      src="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/makemoney.js.下载"
+      async=""
+    ></script>
+
+    <link
+      rel="prev"
+      href="https://www.ruanyifeng.com/blog/2015/06/es-checker.html"
+      title="ES6 的功能侦测库 ES-Checker"
+    />
+    <link
+      rel="next"
+      href="https://www.ruanyifeng.com/blog/2015/07/flex-examples.html"
+      title="Flex 布局教程：实例篇"
+    />
+
+    <title>Flex 布局教程：语法篇 - 阮一峰的网络日志</title>
+    <meta name="darkreader" content="daa9570ac7484afc90c1f15df168e9b1" />
+    <style class="darkreader darkreader--override" media="screen">
+      .vimvixen-hint {
+        background-color: #7b5300 !important;
+        border-color: #d8b013 !important;
+        color: #f3e8c8 !important;
+      }
+      ::placeholder {
+        opacity: 0.5 !important;
+      }
+      #edge-translate-panel-body,
+      .MuiTypography-body1,
+      .nfe-quote-text {
+        color: var(--darkreader-neutral-text) !important;
+      }
+      gr-main-header {
+        background-color: #0f3a48 !important;
+      }
+      .tou-z65h9k,
+      .tou-mignzq,
+      .tou-1b6i2ox,
+      .tou-lnqlqk {
+        background-color: var(--darkreader-neutral-background) !important;
+      }
+      .tou-75mvi {
+        background-color: #032029 !important;
+      }
+      .tou-ta9e87,
+      .tou-1w3fhi0,
+      .tou-1b8t2us,
+      .tou-py7lfi,
+      .tou-1lpmd9d,
+      .tou-1frrtv8,
+      .tou-17ezmgn {
+        background-color: #0a0a0a !important;
+      }
+      .tou-uknfeu {
+        background-color: #231603 !important;
+      }
+      .tou-6i3zyv {
+        background-color: #19576c !important;
+      }
+      embed[type="application/pdf"][src="about:blank"] {
+        filter: invert(100%) contrast(90%);
+      }
+    </style>
+  </head>
+  <body id="scrapbook" class="mt-entry-archive one-column">
+    <script>
+      if (
+        /mobile/i.test(navigator.userAgent) ||
+        /android/i.test(navigator.userAgent)
+      )
+        document.body.classList.add("mobile");
+
+      /*
+window.addEventListener('load', function(event) {
+  setTimeout(function () {
+    hab('#sup-post-2');
+    hab('#cre-inner');
+  }, 1000);
+});
+*/
+    </script>
+    <div id="container">
+      <div id="container-inner">
+        <div id="content">
+          <div id="content-inner">
+            <div id="alpha">
+              <div id="alpha-inner">
+                <div id="entry-1845" class="entry-asset asset hentry">
+                  <article class="hentry">
+                    <h1 id="page-title" class="asset-name entry-title">
+                      Flex 布局教程：语法篇
+                    </h1>
+
+                    <div class="asset-meta">
+                      <p class="vcard author">
+                        作者：
+                        <a class="fn url" href="https://www.ruanyifeng.com/"
+                          >阮一峰</a
+                        >
+                      </p>
+                      <p>
+                        日期：
+                        <a href="https://www.ruanyifeng.com/blog/2015/07/"
+                          ><abbr
+                            class="published"
+                            title="2015-07-10T11:39:15+08:00"
+                            >2015年7月10日</abbr
+                          ></a
+                        >
+                      </p>
+                    </div>
+
+                    <div class="asset-content entry-content" id="main-content">
+                      <!-- div class="asset-body" -->
+                      <p>网页布局（layout）是 CSS 的一个重点应用。</p>
+
+                      <!-- /div -->
+
+                      <!-- div id="more" class="asset-more" -->
+                      <p>
+                        <img
+                          src="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/bg2015071001.gif"
+                          alt=""
+                          title=""
+                        />
+                      </p>
+
+                      <p>
+                        布局的传统解决方案，基于<a
+                          href="https://developer.mozilla.org/en-US/docs/Web/CSS/box_model"
+                          target="_blank"
+                          >盒状模型</a
+                        >，依赖
+                        <a
+                          href="https://developer.mozilla.org/en-US/docs/Web/CSS/display"
+                          target="_blank"
+                          ><code>display</code></a
+                        >
+                        属性 +
+                        <a
+                          href="https://developer.mozilla.org/en-US/docs/Web/CSS/position"
+                          target="_blank"
+                          ><code>position</code></a
+                        >属性 +
+                        <a
+                          href="https://developer.mozilla.org/en-US/docs/Web/CSS/float"
+                          target="_blank"
+                          ><code>float</code></a
+                        >属性。它对于那些特殊布局非常不方便，比如，<a
+                          href="https://css-tricks.com/centering-css-complete-guide/"
+                          target="_blank"
+                          >垂直居中</a
+                        >就不容易实现。
+                      </p>
+
+                      <p>
+                        <img
+                          src="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/bg2015071002.png"
+                          alt=""
+                          title=""
+                        />
+                      </p>
+
+                      <p>
+                        2009年，W3C 提出了一种新的方案----Flex
+                        布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。
+                      </p>
+
+                      <p>
+                        <img
+                          src="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/bg2015071003.jpg"
+                          alt=""
+                          title=""
+                        />
+                      </p>
+
+                      <p>
+                        Flex 布局将成为未来布局的首选方案。本文介绍它的语法，<a
+                          href="https://www.ruanyifeng.com/blog/2015/07/flex-examples.html"
+                          target="_blank"
+                          >下一篇文章</a
+                        >给出常见布局的 Flex 写法。网友
+                        <a href="http://vgee.cn/" target="_blank">JailBreak</a>
+                        为本文的所有示例制作了
+                        <a
+                          href="http://static.vgee.cn/static/index.html"
+                          target="_blank"
+                          >Demo</a
+                        >，也可以参考。
+                      </p>
+
+                      <p>
+                        以下内容主要参考了下面两篇文章：<a
+                          href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
+                          target="_blank"
+                          >A Complete Guide to Flexbox</a
+                        >
+                        和
+                        <a
+                          href="https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties"
+                          target="_blank"
+                          >A Visual Guide to CSS3 Flexbox Properties</a
+                        >。
+                      </p>
+
+                      <h2>一、Flex 布局是什么？</h2>
+
+                      <p>
+                        Flex 是 Flexible Box
+                        的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。
+                      </p>
+
+                      <p>任何一个容器都可以指定为 Flex 布局。</p>
+
+                      <blockquote>
+                        <pre class="language-css"><code class=" language-css">
+<span class="token selector">.box</span><span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+                      </blockquote>
+
+                      <p>行内元素也可以使用 Flex 布局。</p>
+
+                      <blockquote>
+                        <pre class="language-css"><code class=" language-css">
+<span class="token selector">.box</span><span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> inline-flex<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+                      </blockquote>
+
+                      <p>
+                        Webkit 内核的浏览器，必须加上<code>-webkit</code>前缀。
+                      </p>
+
+                      <blockquote>
+                        <pre class="language-css"><code class=" language-css">
+<span class="token selector">.box</span><span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> -webkit-flex<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* Safari */</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+                      </blockquote>
+
+                      <p>
+                        注意，设为 Flex
+                        布局以后，子元素的<code>float</code>、<code>clear</code>和<code>vertical-align</code>属性将失效。
+                      </p>
+
+                      <h2>二、基本概念</h2>
+
+                      <p>
+                        采用 Flex 布局的元素，称为 Flex 容器（flex
+                        container），简称"容器"。它的所有子元素自动成为容器成员，称为
+                        Flex 项目（flex item），简称"项目"。
+                      </p>
+
+                      <p>
+                        <img
+                          src="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/bg2015071004.png"
+                          alt=""
+                          title=""
+                        />
+                      </p>
+
+                      <p>
+                        容器默认存在两根轴：水平的主轴（main
+                        axis）和垂直的交叉轴（cross
+                        axis）。主轴的开始位置（与边框的交叉点）叫做<code
+                          >main start</code
+                        >，结束位置叫做<code>main end</code
+                        >；交叉轴的开始位置叫做<code>cross start</code
+                        >，结束位置叫做<code>cross end</code>。
+                      </p>
+
+                      <p>
+                        项目默认沿主轴排列。单个项目占据的主轴空间叫做<code
+                          >main size</code
+                        >，占据的交叉轴空间叫做<code>cross size</code>。
+                      </p>
+
+                      <h2>三、容器的属性</h2>
+
+                      <p>以下6个属性设置在容器上。</p>
+
+                      <blockquote>
+                        <ul>
+                          <li>flex-direction</li>
+                          <li>flex-wrap</li>
+                          <li>flex-flow</li>
+                          <li>justify-content</li>
+                          <li>align-items</li>
+                          <li>align-content</li>
+                        </ul>
+                      </blockquote>
+
+                      <h3>3.1 flex-direction属性</h3>
+
+                      <p>
+                        <code>flex-direction</code
+                        >属性决定主轴的方向（即项目的排列方向）。
+                      </p>
+
+                      <blockquote>
+                        <pre class="language-css"><code class=" language-css">
+<span class="token selector">.box </span><span class="token punctuation">{</span>
+  <span class="token property">flex-direction</span><span class="token punctuation">:</span> row | row-reverse | column | column-reverse<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+                      </blockquote>
+
+                      <p>
+                        <img
+                          src="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/bg2015071005.png"
+                          alt=""
+                          title=""
+                        />
+                      </p>
+
+                      <p>它可能有4个值。</p>
+
+                      <blockquote>
+                        <ul>
+                          <li>
+                            <code>row</code
+                            >（默认值）：主轴为水平方向，起点在左端。
+                          </li>
+                          <li>
+                            <code>row-reverse</code
+                            >：主轴为水平方向，起点在右端。
+                          </li>
+                          <li>
+                            <code>column</code>：主轴为垂直方向，起点在上沿。
+                          </li>
+                          <li>
+                            <code>column-reverse</code
+                            >：主轴为垂直方向，起点在下沿。
+                          </li>
+                        </ul>
+                      </blockquote>
+
+                      <h3>3.2 flex-wrap属性</h3>
+
+                      <p>
+                        默认情况下，项目都排在一条线（又称"轴线"）上。<code>flex-wrap</code>属性定义，如果一条轴线排不下，如何换行。
+                      </p>
+
+                      <p>
+                        <img
+                          src="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/bg2015071006.png"
+                          alt=""
+                          title=""
+                        />
+                      </p>
+
+                      <blockquote>
+                        <pre class="language-css"><code class=" language-css">
+<span class="token selector">.box</span><span class="token punctuation">{</span>
+  <span class="token property">flex-wrap</span><span class="token punctuation">:</span> nowrap | wrap | wrap-reverse<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+                      </blockquote>
+
+                      <p>它可能取三个值。</p>
+
+                      <p>（1）<code>nowrap</code>（默认）：不换行。</p>
+
+                      <p>
+                        <img
+                          src="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/bg2015071007.png"
+                          alt=""
+                          title=""
+                        />
+                      </p>
+
+                      <p>（2）<code>wrap</code>：换行，第一行在上方。</p>
+
+                      <p>
+                        <img
+                          src="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/bg2015071008.jpg"
+                          alt=""
+                          title=""
+                        />
+                      </p>
+
+                      <p>
+                        （3）<code>wrap-reverse</code>：换行，第一行在下方。
+                      </p>
+
+                      <p>
+                        <img
+                          src="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/bg2015071009.jpg"
+                          alt=""
+                          title=""
+                        />
+                      </p>
+
+                      <h3>3.3 flex-flow</h3>
+
+                      <p>
+                        <code>flex-flow</code
+                        >属性是<code>flex-direction</code>属性和<code>flex-wrap</code>属性的简写形式，默认值为<code
+                          >row nowrap</code
+                        >。
+                      </p>
+
+                      <blockquote>
+                        <pre class="language-css"><code class=" language-css">
+<span class="token selector">.box </span><span class="token punctuation">{</span>
+  <span class="token property">flex-flow</span><span class="token punctuation">:</span> <span class="token ignore">&lt;</span>flex-direction&gt; || <span class="token ignore">&lt;</span>flex-wrap&gt;<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+                      </blockquote>
+
+                      <h3>3.4 justify-content属性</h3>
+
+                      <p>
+                        <code>justify-content</code
+                        >属性定义了项目在主轴上的对齐方式。
+                      </p>
+
+                      <blockquote>
+                        <pre class="language-css"><code class=" language-css">
+<span class="token selector">.box </span><span class="token punctuation">{</span>
+  <span class="token property">justify-content</span><span class="token punctuation">:</span> flex-start | flex-end | center | space-between | space-around<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+                      </blockquote>
+
+                      <p>
+                        <img
+                          src="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/bg2015071010.png"
+                          alt=""
+                          title=""
+                        />
+                      </p>
+
+                      <p>
+                        它可能取5个值，具体对齐方式与轴的方向有关。下面假设主轴为从左到右。
+                      </p>
+
+                      <blockquote>
+                        <ul>
+                          <li><code>flex-start</code>（默认值）：左对齐</li>
+                          <li><code>flex-end</code>：右对齐</li>
+                          <li><code>center</code>： 居中</li>
+                          <li>
+                            <code>space-between</code
+                            >：两端对齐，项目之间的间隔都相等。
+                          </li>
+                          <li>
+                            <code>space-around</code
+                            >：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
+                          </li>
+                        </ul>
+                      </blockquote>
+
+                      <h3>3.5 align-items属性</h3>
+
+                      <p>
+                        <code>align-items</code>属性定义项目在交叉轴上如何对齐。
+                      </p>
+
+                      <blockquote>
+                        <pre class="language-css"><code class=" language-css">
+<span class="token selector">.box </span><span class="token punctuation">{</span>
+  <span class="token property">align-items</span><span class="token punctuation">:</span> flex-start | flex-end | center | baseline | stretch<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+                      </blockquote>
+
+                      <p>
+                        <img
+                          src="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/bg2015071011.png"
+                          alt=""
+                          title=""
+                        />
+                      </p>
+
+                      <p>
+                        它可能取5个值。具体的对齐方式与交叉轴的方向有关，下面假设交叉轴从上到下。
+                      </p>
+
+                      <blockquote>
+                        <ul>
+                          <li><code>flex-start</code>：交叉轴的起点对齐。</li>
+                          <li><code>flex-end</code>：交叉轴的终点对齐。</li>
+                          <li><code>center</code>：交叉轴的中点对齐。</li>
+                          <li>
+                            <code>baseline</code>: 项目的第一行文字的基线对齐。
+                          </li>
+                          <li>
+                            <code>stretch</code
+                            >（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
+                          </li>
+                        </ul>
+                      </blockquote>
+
+                      <h3>3.6 align-content属性</h3>
+
+                      <p>
+                        <code>align-content</code
+                        >属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。
+                      </p>
+
+                      <blockquote>
+                        <pre class="language-css"><code class=" language-css">
+<span class="token selector">.box </span><span class="token punctuation">{</span>
+  <span class="token property">align-content</span><span class="token punctuation">:</span> flex-start | flex-end | center | space-between | space-around | stretch<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+                      </blockquote>
+
+                      <p>
+                        <img
+                          src="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/bg2015071012.png"
+                          alt=""
+                          title=""
+                        />
+                      </p>
+
+                      <p>该属性可能取6个值。</p>
+
+                      <blockquote>
+                        <ul>
+                          <li><code>flex-start</code>：与交叉轴的起点对齐。</li>
+                          <li><code>flex-end</code>：与交叉轴的终点对齐。</li>
+                          <li><code>center</code>：与交叉轴的中点对齐。</li>
+                          <li>
+                            <code>space-between</code
+                            >：与交叉轴两端对齐，轴线之间的间隔平均分布。
+                          </li>
+                          <li>
+                            <code>space-around</code
+                            >：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
+                          </li>
+                          <li>
+                            <code>stretch</code>（默认值）：轴线占满整个交叉轴。
+                          </li>
+                        </ul>
+                      </blockquote>
+
+                      <h3>四、项目的属性</h3>
+
+                      <p>以下6个属性设置在项目上。</p>
+
+                      <blockquote>
+                        <ul>
+                          <li><code>order</code></li>
+                          <li><code>flex-grow</code></li>
+                          <li><code>flex-shrink</code></li>
+                          <li><code>flex-basis</code></li>
+                          <li><code>flex</code></li>
+                          <li><code>align-self</code></li>
+                        </ul>
+                      </blockquote>
+
+                      <h3>4.1 order属性</h3>
+
+                      <p>
+                        <code>order</code
+                        >属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。
+                      </p>
+
+                      <blockquote>
+                        <pre class="language-css"><code class=" language-css">
+<span class="token selector">.item </span><span class="token punctuation">{</span>
+  <span class="token property">order</span><span class="token punctuation">:</span> <span class="token ignore">&lt;</span>integer&gt;<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+                      </blockquote>
+
+                      <p>
+                        <img
+                          src="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/bg2015071013.png"
+                          alt=""
+                          title=""
+                        />
+                      </p>
+
+                      <h3>4.2 flex-grow属性</h3>
+
+                      <p>
+                        <code>flex-grow</code
+                        >属性定义项目的放大比例，默认为<code>0</code>，即如果存在剩余空间，也不放大。
+                      </p>
+
+                      <blockquote>
+                        <pre class="language-css"><code class=" language-css">
+<span class="token selector">.item </span><span class="token punctuation">{</span>
+  <span class="token property">flex-grow</span><span class="token punctuation">:</span> <span class="token ignore">&lt;</span>number&gt;<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* default 0 */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+                      </blockquote>
+
+                      <p>
+                        <img
+                          src="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/bg2015071014.png"
+                          alt=""
+                          title=""
+                        />
+                      </p>
+
+                      <p>
+                        如果所有项目的<code>flex-grow</code>属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的<code>flex-grow</code>属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。
+                      </p>
+
+                      <h3>4.3 flex-shrink属性</h3>
+
+                      <p>
+                        <code>flex-shrink</code
+                        >属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。
+                      </p>
+
+                      <blockquote>
+                        <pre class="language-css"><code class=" language-css">
+<span class="token selector">.item </span><span class="token punctuation">{</span>
+  <span class="token property">flex-shrink</span><span class="token punctuation">:</span> <span class="token ignore">&lt;</span>number&gt;<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* default 1 */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+                      </blockquote>
+
+                      <p>
+                        <img
+                          src="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/bg2015071015.jpg"
+                          alt=""
+                          title=""
+                        />
+                      </p>
+
+                      <p>
+                        如果所有项目的<code>flex-shrink</code>属性都为1，当空间不足时，都将等比例缩小。如果一个项目的<code>flex-shrink</code>属性为0，其他项目都为1，则空间不足时，前者不缩小。
+                      </p>
+
+                      <p>负值对该属性无效。</p>
+
+                      <h3>4.4 flex-basis属性</h3>
+
+                      <p>
+                        <code>flex-basis</code
+                        >属性定义了在分配多余空间之前，项目占据的主轴空间（main
+                        size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为<code>auto</code>，即项目的本来大小。
+                      </p>
+
+                      <blockquote>
+                        <pre class="language-css"><code class=" language-css">
+<span class="token selector">.item </span><span class="token punctuation">{</span>
+  <span class="token property">flex-basis</span><span class="token punctuation">:</span> <span class="token ignore">&lt;</span>length&gt; | auto<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">/* default auto */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+                      </blockquote>
+
+                      <p>
+                        它可以设为跟<code>width</code>或<code>height</code>属性一样的值（比如350px），则项目将占据固定空间。
+                      </p>
+
+                      <h3>4.5 flex属性</h3>
+
+                      <p>
+                        <code>flex</code>属性是<code>flex-grow</code>,
+                        <code>flex-shrink</code> 和
+                        <code>flex-basis</code>的简写，默认值为<code
+                          >0 1 auto</code
+                        >。后两个属性可选。
+                      </p>
+
+                      <blockquote>
+                        <pre class="language-css"><code class=" language-css">
+<span class="token selector">.item </span><span class="token punctuation">{</span>
+  <span class="token property">flex</span><span class="token punctuation">:</span> none | [ <span class="token ignore">&lt;</span><span class="token string">'flex-grow'</span>&gt; <span class="token ignore">&lt;</span><span class="token string">'flex-shrink'</span>&gt;? || <span class="token ignore">&lt;</span><span class="token string">'flex-basis'</span>&gt; ]
+<span class="token punctuation">}</span>
+</code></pre>
+                      </blockquote>
+
+                      <p>
+                        该属性有两个快捷值：<code>auto</code> (<code
+                          >1 1 auto</code
+                        >) 和 none (<code>0 0 auto</code>)。
+                      </p>
+
+                      <p>
+                        建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。
+                      </p>
+
+                      <h3>4.6 align-self属性</h3>
+
+                      <p>
+                        <code>align-self</code
+                        >属性允许单个项目有与其他项目不一样的对齐方式，可覆盖<code>align-items</code>属性。默认值为<code>auto</code>，表示继承父元素的<code>align-items</code>属性，如果没有父元素，则等同于<code>stretch</code>。
+                      </p>
+
+                      <blockquote>
+                        <pre class="language-css"><code class=" language-css">
+<span class="token selector">.item </span><span class="token punctuation">{</span>
+  <span class="token property">align-self</span><span class="token punctuation">:</span> auto | flex-start | flex-end | center | baseline | stretch<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+                      </blockquote>
+
+                      <p>
+                        <img
+                          src="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/bg2015071016.png"
+                          alt=""
+                          title=""
+                        />
+                      </p>
+
+                      <p>
+                        该属性可能取6个值，除了auto，其他都与align-items属性完全一致。
+                      </p>
+
+                      <p>（完）</p>
+
+                      <!-- /div -->
+                    </div>
+                    <script
+                      type="text/javascript"
+                      src="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/newwindow.js.下载"
+                    ></script>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script
+          type="text/javascript"
+          src="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/prism.js.下载"
+        ></script>
+        <script
+          type="text/javascript"
+          src="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/checker.js.下载"
+        ></script>
+
+        <script>
+          function insertLine(e, t) {
+            for (var n = 0; n < t; n++)
+              e.parentNode.insertBefore(document.createElement("p"), e);
+          }
+          function getImg() {
+            if (!window["main-content"]) return !1;
+            for (
+              var e,
+                t = Array.prototype.slice.call(
+                  window["main-content"].getElementsByTagName("img")
+                ),
+                n = 0;
+              n < t.length;
+              n++
+            ) {
+              if (
+                "display: none !important;" === (e = t[n]).getAttribute("style")
+              )
+                return e;
+              if (n === t.length - 1) return !1;
+            }
+          }
+          function toObjectUrl(e, t) {
+            return fetch(e)
+              .then((e) => e.blob())
+              .then((e) => {
+                t(URL.createObjectURL(e));
+              });
+          }
+          function toDataURL(e, t) {
+            var n = new XMLHttpRequest();
+            n.open("get", e),
+              (n.responseType = "blob"),
+              (n.onload = function () {
+                var e = new FileReader();
+                (e.onload = function () {
+                  t(this.result);
+                }),
+                  e.readAsDataURL(n.response);
+              }),
+              n.send();
+          }
+          setTimeout(function () {
+            var e = getImg();
+            e &&
+              (insertLine(e.parentNode, 2),
+              toObjectUrl(e.src, function (t) {
+                var n = document.createElement("p"),
+                  r = document.createElement("img");
+                (r.src = t),
+                  n.appendChild(r),
+                  e.parentNode.parentNode.insertBefore(n, e.parentNode);
+              }));
+          }, 3e3);
+        </script>
+        <script>
+          (function (i, s, o, g, r, a, m) {
+            i["GoogleAnalyticsObject"] = r;
+            (i[r] =
+              i[r] ||
+              function () {
+                (i[r].q = i[r].q || []).push(arguments);
+              }),
+              (i[r].l = 1 * new Date());
+            (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m);
+          })(
+            window,
+            document,
+            "script",
+            "//www.google-analytics.com/analytics.js",
+            "ga"
+          );
+
+          ga("create", "UA-46829782-1", "ruanyifeng.com");
+          ga("send", "pageview");
+        </script>
+
+        <script
+          type="text/javascript"
+          src="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/stats.js.下载"
+        ></script>
+        <script>
+          var supportImg = document.querySelector("#support-img");
+
+          if (supportImg && _hmt) {
+            _hmt.push(["_trackEvent", "banner", "load"]);
+            supportImg.addEventListener(
+              "click",
+              function () {
+                _hmt.push(["_trackEvent", "banner", "click"]);
+              },
+              false
+            );
+          }
+
+          var homepageImg = document.querySelector("#homepage_sponsor");
+          if (homepageImg && _hmt) {
+            _hmt.push(["_trackEvent", "homepage-banner", "load"]);
+            homepageImg.addEventListener(
+              "click",
+              function () {
+                _hmt.push(["_trackEvent", "homepage-banner", "click"]);
+              },
+              false
+            );
+          }
+        </script>
+      </div>
+    </div>
+    <script>
+      (function () {
+        var js =
+          "window['__CF$cv$params']={r:'7b5190e63e2e0466',m:'7xkJaBwlP7PWflBVk2k_I2xNQq6xJJyO.FkWapQBXyc-1681030892-0-Ac5nRXUwHDp0Zu1y8bQfps+4NB8twAi5ng2zTxf0QP77NGTW41q/X+qQKquqzDSfZ9CzdiBpUpxYFDyo6kgsD5xp++8u1H9IfGZU0hI+nBT6l0iLDehITlQDSRozT/Es6ZS7sfKeA3kYQX2JdH5A3sg=',s:[0x0dd7383a18,0x291b0c8684],u:'/cdn-cgi/challenge-platform/h/b'};var now=Date.now()/1000,offset=14400,ts=''+(Math.floor(now)-Math.floor(now%offset)),_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/h/b/scripts/alpha/invisible.js?ts='+ts,document.getElementsByTagName('head')[0].appendChild(_cpo);";
+        var _0xh = document.createElement("iframe");
+        _0xh.height = 1;
+        _0xh.width = 1;
+        _0xh.style.position = "absolute";
+        _0xh.style.top = 0;
+        _0xh.style.left = 0;
+        _0xh.style.border = "none";
+        _0xh.style.visibility = "hidden";
+        document.body.appendChild(_0xh);
+        function handler() {
+          var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;
+          if (_0xi) {
+            var _0xj = _0xi.createElement("script");
+            _0xj.nonce = "";
+            _0xj.innerHTML = js;
+            _0xi.getElementsByTagName("head")[0].appendChild(_0xj);
+          }
+        }
+        if (document.readyState !== "loading") {
+          handler();
+        } else if (window.addEventListener) {
+          document.addEventListener("DOMContentLoaded", handler);
+        } else {
+          var prev = document.onreadystatechange || function () {};
+          document.onreadystatechange = function (e) {
+            prev(e);
+            if (document.readyState !== "loading") {
+              document.onreadystatechange = prev;
+              handler();
+            }
+          };
+        }
+      })();
+    </script>
+    <iframe
+      height="1"
+      width="1"
+      style="
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        border: none;
+        visibility: hidden;
+        --darkreader-inline-border-top: initial;
+        --darkreader-inline-border-right: initial;
+        --darkreader-inline-border-bottom: initial;
+        --darkreader-inline-border-left: initial;
+      "
+      data-darkreader-inline-border-top=""
+      data-darkreader-inline-border-right=""
+      data-darkreader-inline-border-bottom=""
+      data-darkreader-inline-border-left=""
+      src="./13-2-3Flex 布局教程：语法篇 - 阮一峰的网络日志_files/saved_resource.html"
+    ></iframe>
+  </body>
+</html>

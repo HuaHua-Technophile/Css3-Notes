@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>88-1-1-2@font-face服务器字体,字体图标案例</title>
+    <link rel="stylesheet" href="./font/JiNiiTaiMei/iconfont.css" />
+    <style type="text/css">
+      body {
+        background: #1e1e1e;
+      }
+      p {
+        font-size: 40px;
+        color: darkgray;
+      }
+      @font-face {
+        font-family: "jet";
+        src: url(./font/JetBrainsMonoNL-Medium.ttf);
+      }
+      #one {
+        font-family: "jet";
+        /*仍需对元素应用“font-family”字体样式)*/
+      }
+      .JiNiTaiMei {
+        display: inline;
+        font-size: 60px;
+      }
+      .JiNiTaiMei::before {
+        color: aliceblue !important;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      当用户计算机未安装字体时，可使用服务器字体来展示。(定义完服务器字体后，仍需对元素应用“font-family”字体样式)
+    </p>
+    <p>
+      @font-face的属性值有以下几种：
+
+      <li>
+        font-family，用来指定字体的名称，必须提供。例如，font-family:"MyFont";表示定义一个名为"MyFont"的字体
+      </li>
+      <li>
+        src，用来指定字体文件的位置，必须提供.例如，src:url("myfont.woff");表示从指定的URL下载字体文件。你也可以使用local函数来指定用户本地的字体名称，例如src:local("Arial");表示使用用户本地安装的Arial字体。你可以使用多个src值来提供不同格式或技术的字体文件，浏览器会按顺序尝试加载它们
+      </li>
+      <li>
+        font-style，用来指定字体的样式，可选。例如，font-style:italic;表示使用斜体字。这个属性可以帮助浏览器选择合适的字体文件，如果有多个可用的话。
+      </li>
+      <li>
+        font-weight，用来指定字体的粗细，可选。例如，font-weight:bold;表示使用粗体字。这个属性可以帮助浏览器选择合适的字体文件，如果有多个可用的话。
+      </li>
+      <li>
+        font-stretch，用来指定字体的拉伸程度，可选。例如，font-stretch:expanded;表示使用扩展的字体。这个属性可以帮助浏览器选择合适的字体文件，如果有多个可用的话。
+      </li>
+      <li>
+        unicode-range，用来指定字体支持的Unicode字符范围，可选。例如，unicode-range:U+0025-00FF;表示使用字体支持从U+0025到U+00FF的字符。
+      </li>
+      <li>
+        font-display，用来指定字体在下载和使用时的显示方式，可选。例如，font-display:swap;表示在下载字体时使用系统字体显示文本，下载完成后立即切换到自定义字体。
+      </li>
+      <li>
+        font-feature-settings，用来控制OpenType字体中的高级排版特性，可选.例如，font-feature-settings:"kern"1;表示开启字符间距调整功能。
+      </li>
+      <li>
+        font-variation-settings，用来控制OpenType或TrueType字体中的变化特性，可选。例如，font-variation-settings:"wght"700;表示设置字重为700。
+      </li>
+    </p>
+    <p id="one">abcdefghijklmnopqrstuvwxyz(世界上最好的代码字体)</p>
+    <p>abcdefghijklmnopqrstuvwxyz</p>
+    <div class="JiNiTaiMei Jiji"></div>
+    <div class="JiNiTaiMei">你</div>
+    <div class="JiNiTaiMei Jitaiyang"></div>
+    <div class="JiNiTaiMei Jimei"></div>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>7-2-14-2：before被选元素前插入伪对象</title>
+    <style type="text/css">
+      :root {
+        background: #1e1e1e;
+        color: #c8c8c8;
+      }
+
+      .one:before {
+        content: "HuaWei";
+        color: coral;
+        font-size: 30px;
+        font-weight: bolder;
+      }
+
+      .two::before {
+        content: "";
+        /*设置插入的内容，可以为空*/
+        width: 70px;
+        height: 60px;
+        /*以上设置content插入的内容大小，要大于等于背景元素，确保用bg设置的图片能显示*/
+        display: block;
+        /*设置元素框的属性为块级*/
+        background: url("./img/huaweilogo.jpg") no-repeat;
+        /*不用content插入内容，用bg设置背景内容*/
+        background-size: 70px 60px;
+      }
+      /*直接用content不能控制图片大小，
+        所以把图片变成背景图片，然后用background-size就能控制图片大小了。
+        content宽高的设置也是必要的，不然图片也是不能显示出来，
+        因为content为空就相当于没有宽度，背景图片是不能被渲染出来的。
+        display：inline-block可以换成block
+        不过图片就会跑到下一行，但不能没有这个display样式。*/
+    </style>
+  </head>
+
+  <body>
+    <p>
+      ：before伪元素选择器用于在被选元素的内容前插入内容，必须包含content属性(指定要插入的内容)
+    </p>
+    <p class="one">华为，高价低配，顶级智商充值商家</p>
+    <p class="two">华而不实，为所欲为</p>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>14-2-5立方体案例</title>
+    <style type="text/css">
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .exam_father {
+        width: 300px;
+        height: 300px;
+        font-size: 200px;
+        line-height: 300px;
+        margin: 120px auto;
+        position: relative;
+        perspective: 999999999999999999999999999999cm;
+        /*通过拉远视角，使得渲染正方体时不会使用近大远小的比例*/
+        transform-style: preserve-3d;
+        /*使子元素具有遮罩效果，将其6个面立体排列。是产生立体感最重要的元素*/
+        transition: all 1s;
+      }
+      .exam_father:hover {
+        transform: rotate3d(1, 1, 1, 45deg);
+      }
+      div[class^="side"] {
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        border: 5px solid #000;
+        position: absolute;
+        /*使元素贴合父元素左上角，方便设置旋转的定位*/
+      }
+      .side1 {
+        background: rgba(255, 192, 203, 0.5);
+        transform: translateZ(150px);
+        /*因为未作旋转，所以相对于“屏幕平面”，往己方视角移动了150px，放到”前面“*/
+        /*z-index: 2;
+            相当于加权显示，权重越高的元素，在重叠时会覆盖在上层显示
+            但由于我的示例为透明背景，故不需要*/
+      }
+      .side2 {
+        background: rgba(135, 207, 235, 0.5);
+        transform: rotateX(90deg) /*使其变横*/ translateZ(150px);
+        /*然后依据旋转后的Z轴“前移”(在我们看来是上移)150px，放到“上层”*/
+      }
+      .side3 {
+        background: rgba(255, 255, 0, 0.5);
+        transform: rotateY(90deg) translateZ(150px);
+      }
+      .side4 {
+        background: rgba(144, 238, 144, 0.5);
+        transform: rotateX(-90deg) translateZ(150px);
+      }
+      .side5 {
+        background: rgba(255, 160, 122, 0.5);
+        transform: rotateY(-90deg) translateZ(150px);
+      }
+      .side6 {
+        background: rgba(128, 0, 128, 0.5);
+        transform: rotateX(180deg) translateZ(150px);
+      }
+      p {
+        background: linear-gradient(
+          165deg,
+          #ff006a52,
+          #00e1ff52,
+          #645d0052,
+          #64004852,
+          #64520052,
+          #00643252,
+          #64000052
+        );
+        padding: 13px;
+        border-radius: 20px;
+        width: fit-content;
+        margin: 10px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="exam_father">
+      <div class="side1">前</div>
+      <div class="side2">上</div>
+      <div class="side3">右</div>
+      <div class="side4">下</div>
+      <div class="side5">左</div>
+      <div class="side6">后</div>
+    </div>
+  </body>
+</html>

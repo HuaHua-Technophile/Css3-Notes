@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>14-1-4transform-style开启3D遮挡关系属性</title>
+  </head>
+  <body>
+    <p>
+      transform-style属性用于设置元素的子元素是在3D空间中定位（preserve-3d）还是在元素的平面中展开（flat）
+      <br />transform-style属性的语法:transform-style:flat|preserve-3d|initial|inherit;
+    </p>
+    <p>
+      开启transform-style:preserve-3d后,还需搭配perspective设置透视效果(对象距离用户的距离)
+    </p>
+    <div class="father">
+      <div class="div1"></div>
+      <div class="div2"></div>
+    </div>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        background: rgba(30, 30, 30, 0.8);
+        transform-style: preserve-3d;
+        perspective: 15cm;
+      }
+      .father {
+        width: 600px;
+        height: 300px;
+        margin: 0 auto;
+        background: rgba(255, 0, 43, 0.3);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        transform-style: preserve-3d;
+        perspective: 15cm;
+        transition: all 1s;
+      }
+      .father:hover {
+        transform: rotateY(-20deg);
+      }
+      .div1,
+      .div2 {
+        width: 200px;
+        height: 200px;
+        border: 10px black solid;
+        box-shadow: 0 0 5px black;
+        transition: transform 1s 1s;
+      }
+      .div1:hover {
+        transform: rotateY(45deg);
+      }
+      .div2:hover {
+        transform: rotateX(45deg);
+      }
+    </style>
+  </body>
+</html>

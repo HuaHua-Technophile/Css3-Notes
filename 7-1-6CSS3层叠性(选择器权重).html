@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>7-1-6CSS3层叠性</title>
+    <style type="text/css">
+      tr > * {
+        text-align: center;
+        border: 1px solid pink;
+        padding: 0.3rem 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="one">
+      CSS3层叠性(选择器权重)是指多种CSS样式的叠加，是浏览器处理样式冲突的方式
+      <br />在HTML中，对于同一个元素可以有多个CSS样式存在，当有相同权重的样式存在时，会根据这些样式出现的先后顺序来决定，处于最后面的CSS样式将会覆盖前面的样式
+      <br />例如，当使用内嵌式css样式表定义p标记字体号大小为20px，类选择器标记颜色为淡白色。
+    </p>
+    <br />
+    <p class="one">那么段落文本将显示20px+淡白色，即这两种样式产生了叠加</p>
+    <hr />
+    <table>
+      <thead>
+        <tr>
+          <th><strong>选择器</strong></th>
+          <th><strong>格式</strong></th>
+          <th><strong>优先级权重</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>id选择器</td>
+          <td>#id</td>
+          <td>100</td>
+        </tr>
+        <tr>
+          <td>类选择器</td>
+          <td>#classname</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>属性选择器</td>
+          <td>a[ref=“eee”]</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>伪类选择器</td>
+          <td>li:last-child</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <td>标签选择器</td>
+          <td>div</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>伪元素选择器</td>
+          <td>li:after</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>相邻兄弟选择器</td>
+          <td>h1+p</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>子选择器</td>
+          <td>ul&gt;li</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>后代选择器</td>
+          <td>li a</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>通配符选择器</td>
+          <td>*</td>
+          <td>0</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      继承后的权重为0，即使id选择器是最高权重，可在它内部的元素被继承时权重将变为0
+    </p>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>7-2-6相邻选择器</title>
+    <style type="text/css">
+      body {
+        background: #1e1e1e;
+      }
+      * {
+        color: #c8c8c8;
+        font-size: 25px;
+      }
+      p + a {
+        color: rgb(255, 96, 96);
+      }
+      a + b {
+        color: rgb(85, 127, 255);
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      临近兄弟选择器使用“+”连接，选择其中两个元素具有同一个父亲，第二个元素必须紧跟一个元素，中间什么都不能加。连br换行符也不行
+    </p>
+    <p>p+a {( color: rgb(218, 150, 150); } a+b { color: rgb(93, 129, 238); }</p>
+    <p>(p元素,父元素为body)</p>
+    <a>(a元素,父元素为body)</a>
+    <a>(a元素,父元素为body)</a>
+    <a>(a元素,父元素为body)</a>
+    <b>(b元素,父元素为body)</b>
+    <a>(a元素,父元素为body)</a>
+    <b>(b元素,父元素为body)</b>
+    <b>(b元素,父元素为body)</b>
+  </body>
+</html>

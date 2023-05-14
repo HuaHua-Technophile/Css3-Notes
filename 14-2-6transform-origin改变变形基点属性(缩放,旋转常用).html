@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>14-2-6transform-origin改变变形基点属性(缩放,旋转常用)</title>
+    <style type="text/css">
+      body {
+        background: #1e1e1e;
+      }
+      body::-webkit-scrollbar {
+        display: none; /*取消滚动条*/
+      }
+      p {
+        color: #c8c8c8;
+        background: linear-gradient(
+          165deg,
+          #ff006a52,
+          #00e1ff52,
+          #645d0052,
+          #64004852,
+          #64520052,
+          #00643252,
+          #64000052
+        );
+        padding: 13px;
+        border-radius: 20px;
+        width: fit-content;
+        margin: 10px auto;
+      }
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      div[class$="scale"],
+      div[class$="rotate"] {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin-bottom: 15px;
+      }
+      div[class$="scale"]:hover > div {
+        transform: scale(0);
+      }
+      div[class$="rotate"]:hover > div {
+        transform: rotateZ(45deg);
+      }
+      div[class^="pink"] {
+        width: 200px;
+        height: 200px;
+        background: linear-gradient(135deg, #ffc0cb, #e4aab4);
+        border: 1px solid rgb(169, 60, 78);
+        border-radius: 10px;
+        box-shadow: 3px 3px 5px black, inset 2px 2px 6px white,
+          inset -2px -2px 6px black;
+        transition: all 1s;
+        display: flex;
+        align-items: center;
+        color: #6063ff;
+        text-shadow: 1px 1px 2px rgba(0, 62, 177, 0.39),
+          -1px -1px 1px rgba(255, 255, 255, 0.466);
+        padding: 10px;
+        box-sizing: border-box;
+        font-size: 1.3rem;
+        text-align: center;
+      }
+      .pink2,
+      .pink6 {
+        transform-origin: 0 0;
+        transform-origin: top left;
+      }
+      .pink3,
+      .pink7 {
+        transform-origin: 50% 0;
+        transform-origin: center left;
+      }
+      .pink4,
+      .pink8 {
+        transform-origin: 200% 50%;
+        transform-origin: 2 center;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      transform-origin是CSS3中的一个属性，用于设置变换元素的基点位置，也就是变换的参考点。它可以接受一个，两个或三个值，分别表示水平偏移量，垂直偏移量和深度偏移量。如果没有指定偏移量，或者使用了关键字center，那么默认的基点位置是元素的中心点
+    </p>
+    <p>
+      transform-origin的语法:transform-origin: [ percentage | length | left |
+      center | right ] [ percentage | length | top | center | bottom ]? [ length
+      | percentage ]?
+    </p>
+    <p>
+      第一个值表示水平偏移量，第二个值表示垂直偏移量，第三个值表示深度偏移量。如果只提供一个值，那么它表示水平偏移量，垂直偏移量默认为50%。如果提供两个值，那么第三个值默认为0。
+      <br />transform-origin的用处是可以改变元素变换的效果，比如旋转，缩放，倾斜等。通过设置不同的基点位置，可以实现不同的动画效果，比如钟摆，太阳系等
+    </p>
+    <div class="container">
+      <div class="scale">
+        <div class="pink1">transform-origin未指定</div>
+      </div>
+      <div class="scale">
+        <div class="pink2">
+          transform-origin: 0 0;transform-origin: top left;
+        </div>
+      </div>
+      <div class="scale">
+        <div class="pink3">
+          transform-origin: 50% 0; transform-origin: center left;
+        </div>
+      </div>
+      <div class="scale">
+        <div class="pink4">
+          transform-origin: 200% 50%; transform-origin: 2 center;
+        </div>
+      </div>
+      <div class="rotate">
+        <div class="pink5">transform-origin未指定</div>
+      </div>
+      <div class="rotate">
+        <div class="pink6">
+          transform-origin: 0 0;transform-origin: top left;
+        </div>
+      </div>
+      <div class="rotate">
+        <div class="pink7">
+          transform-origin: 50% 0; transform-origin: center left;
+        </div>
+      </div>
+      <div class="rotate">
+        <div class="pink8">
+          transform-origin: 200% 50%; transform-origin: 2 center;
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

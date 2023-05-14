@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>12-2-3-2absolute绝对定位</title>
+    <style type="text/css">
+      :root {
+        background: Url(./img/蓝色星空星河6070x3414.jpg) center fixed;
+        background-size: cover;
+        color: #c8c8c8;
+        font-size: 25px;
+      }
+      .father1,
+      .father2 {
+        width: 46%;
+        float: left;
+        border: solid #c8c8c8;
+        border-radius: 30px;
+        margin: 15px;
+      }
+      .father1 {
+        position: relative;
+        /*父元素设置相对定位，但不设置偏移量。可让子元素相对其来偏移*/
+      }
+      .box1,
+      .box2,
+      .box3,
+      .box4,
+      .box5,
+      .box6 {
+        box-sizing: border-box;
+        width: 150px;
+        height: 80px;
+        padding: 20px;
+        margin: 20px;
+        text-align: center;
+        border: solid 4px rgba(255, 0, 242, 0.493);
+        border-radius: 30px;
+        background: url(./img/粉色银河2886x4329.jpg) center fixed;
+        background-size: cover;
+        box-shadow: 5px 5px 10px rgb(102, 0, 51);
+      }
+      .box2,
+      .box5 {
+        position: absolute;
+        left: 200px;
+        top: 100px;
+      }
+      p {
+        clear: left;
+        /*清除浮动的影响*/
+        background: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="father1">
+      <div class="box1">box1</div>
+      <div class="box2">box2</div>
+      <div class="box3">box3</div>
+    </div>
+    <div class="father2">
+      <div class="box4">box4</div>
+      <div class="box5">box5</div>
+      <div class="box6">box6</div>
+    </div>
+    <p>
+      absolute绝对定位可将元素依据最靠近(内层)的、已被定位的父元素进行定位。若所有父元素都没有定位，则依据body根元素(浏览器窗口)进行定位
+    </p>
+    <p>
+      右侧盒子中的box5(其实已经跑到左边)，设置了绝对定位 left: 200px; top:
+      100px;，但其父元素未设置相对定位
+    </p>
+    <p>
+      左侧盒子中的box2设置的也是绝对定位 left: 200px; top:
+      100px;，但其父元素设置了相对定位，使得box2的偏移量是根据父元素来偏移的
+    </p>
+  </body>
+</html>

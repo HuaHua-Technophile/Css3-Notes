@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>
+      8-2-5word-break单词如何被拆分换行word-wrap长度超过一行的单词是否被拆分换行
+    </title>
+    <style></style>
+    <style>
+      div {
+        width: 200px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <ol>
+      word-break是一个CSS属性，用于控制文本在单词或字符之间的断行方式。它有以下几种可能的值：
+      <li>normal：使用默认的断行规则，根据语言和字体来决定。</li>
+      <li>
+        break-all：对于非CJK（中文/日文/韩文）文本，可以在任意字符间断行。
+      </li>
+      <li>keep-all：CJK文本不断行，非CJK文本表现同normal。</li>
+      <li>
+        break-word：已弃用，它的效果是word-break:normal和overflow-wrap:anywhere的合并
+      </li>
+    </ol>
+    <p>
+      word-wrap属性是CSS3新增的属性，用于控制长单词或URL地址在容器的边界处是否进行自动换行.它有两个值：normal或break-word。normal表示不允许内容超出指定的容器边界，如果单词超长，会冲出边界.break-word表示允许内容在边界处换行到下一行，只有当一个单词一整行都显示不下时，才会拆分换行该单词
+    </p>
+    <p>
+      word-break和word-wrap的区别是一个常见的CSS问题，它们都可以控制文本的换行行为，但有一些细微的差别
+      <br />简单来说，word-break控制的是单词如何被拆分换行，而word-wrap控制的是长度超过一行的单词是否被拆分换行
+    </p>
+    <div style="word-break: normal">
+      word-break: normal<br />
+      Abcbc Abcbc Abcbcbcb Abcbcbcbcbcb Abcbcbcbcbcbcbcbcbcbcbcbcbcbc
+    </div>
+    <div style="word-break: keep-all">
+      word-break: keep-all<br />
+      Abcbc Abcbc Abcbcbcb Abcbcbcbcbcb Abcbcbcbcbcbcbcbcbcbcbcbcbcbc
+    </div>
+    <div style="word-break: break-all">
+      word-break: break-all<br />
+      Abcbc Abcbc Abcbcbcb Abcbcbcbcbcb Abcbcbcbcbcbcbcbcbcbcbcbcbcbc
+    </div>
+    <div style="word-wrap: normal">
+      word-wrap: normal<br />
+      Abcbc Abcbc Abcbcbcb Abcbcbcbcbcb Abcbcbcbcbcbcbcbcbcbcbcbcbcbc
+    </div>
+    <div style="word-wrap: break-word">
+      word-wrap: break-word<br />
+      Abcbc Abcbc Abcbcbcb Abcbcbcbcbcb Abcbcbcbcbcbcbcbcbcbcbcbcbcbc
+    </div>
+    <ol>
+      根据网络搜索，white-space属性是CSS中用来设置如何处理元素中的空白的属性
+      <li>
+        normal：默认值，连续的空白符会被合并，换行符会被当作空白符来处理。换行在填充行框盒子时是必要的
+      </li>
+      <li>nowrap：和normal一样，连续的空白符会被合并。但文本内的换行无效</li>
+      <li>pre：连续的空白符会被保留。在遇到换行符或者br元素时才会换行</li>
+      <li>
+        pre-wrap：连续的空白符会被保留。在遇到换行符或者br元素，或者需要为了填充行框盒子时才会换行
+      </li>
+      <li>
+        pre-line：连续的空白符会被合并。在遇到换行符或者br元素，或者需要为了填充行框盒子时会换行
+      </li>
+      <li>
+        break-spaces：与pre-wrap的行为相同，除了：任何保留的空白序列总是占用空间，包括在行尾。每个保留的空格字符后都存在换行机会，包括空格字符之间
+      </li>
+    </ol>
+    <style>
+      p {
+        width: 200px;
+        border: 1px solid black;
+      }
+      .normal {
+        white-space: normal;
+      }
+      .nowrap {
+        white-space: nowrap;
+      }
+      .pre {
+        white-space: pre;
+      }
+      .pre-wrap {
+        white-space: pre-wrap;
+      }
+      .pre-line {
+        white-space: pre-line;
+      }
+    </style>
+    <p class="normal">
+      ABC ABC ABC ABCDEFGHIJKLMNopqrstuvwxyz ABCDEFGHIJK ABC ABC ABCD ABCDE ABC
+      ABC ABC
+    </p>
+    <p class="nowrap">
+      ABC ABC ABC ABCDEFGHIJKLMNopqrstuvwxyz ABCDEFGHIJK ABC ABC ABCD ABCDE ABC
+      ABC ABC
+    </p>
+    <p class="pre">
+      ABC ABC ABC ABCDEFGHIJKLMNopqrstuvwxyz ABCDEFGHIJK ABC ABC ABCD ABCDE ABC
+      ABC ABC
+    </p>
+    <p class="pre-wrap">
+      ABC ABC ABC ABCDEFGHIJKLMNopqrstuvwxyz ABCDEFGHIJK ABC ABC ABCD ABCDE ABC
+      ABC ABC
+    </p>
+    <p class="pre-line">
+      ABC ABC ABC ABCDEFGHIJKLMNopqrstuvwxyz ABCDEFGHIJK ABC ABC ABCD ABCDE ABC
+      ABC ABC
+    </p>
+  </body>
+</html>

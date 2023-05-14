@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>12-2-2-4空元素+清除浮动</title>
+    <style type="text/css">
+      :root {
+        background: url(./img/粉色银河2886x4329.jpg) center fixed;
+        background-size: cover;
+        color: #c8c8c8;
+      }
+      .father {
+        background: rgba(0, 0, 0, 0);
+        border: solid 10px rgba(3, 0, 197, 0.466);
+        border-radius: 70px;
+        /*未对父元素定义高度*/
+      }
+      .box1,
+      .box2,
+      .box3 {
+        box-sizing: border-box;
+        height: 200px;
+        margin: 30px;
+        padding: 50px;
+        line-height: 100px;
+        font-size: 30px;
+        text-align: center;
+        border: solid #c8c8c8;
+        border-radius: 50px;
+        background: rgba(190, 0, 248, 0.247);
+        box-shadow: 15px 15px 20px #05004d;
+      }
+      .box1,
+      .box2,
+      .box3 {
+        float: left;
+      }
+      .boxclear {
+        clear: both;
+        /*该元素无内容，仅用于被应用clear:both参数值*/
+      }
+      p {
+        font-size: 30px;
+        text-shadow: 5px 5px 5px #570048;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="father">
+      <div class="box1">box1</div>
+      <div class="box2">box2</div>
+      <div class="box3">box3</div>
+      <p class="boxclear"></p>
+      <!--该元素无内容，仅用于被应用clear:both参数值-->
+    </div>
+    <p>
+      解决子元素浮动对父元素无法撑起的影响或其他影响，可用：空元素清除浮动
+      <br />在浮动元素之后添加任意内容为空的元素(任意元素，div也行、p也行、h1也行)
+      <br />并对其应用"clear: both"参数值
+    </p>
+    <p>虽然父元素被子元素撑开了，但是多了一个毫无意义的结构元素，不建议使用</p>
+  </body>
+</html>

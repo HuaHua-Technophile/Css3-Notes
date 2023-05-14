@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>3-6标签选择器</title>
+    <style>
+      p {
+        /*标记选择器，对html内所有p标签生效*/
+        color: salmon;
+        font-style: italic;
+      }
+
+      .one {
+        /*类选择器。对html内所有“one”类生效，包括例子中的p标签与h1标签*/
+        color: seagreen;
+        text-decoration: underline;
+      }
+
+      p.one {
+        font-size: 50px;
+        /*更改了字号，只对p标签内的所有“one”的类生效*/
+      }
+    </style>
+  </head>
+
+  <body>
+    <p>未设置类的一段p标签文本</p>
+    <p class="one">设置了one类的一段p标签文本</p>
+    <h1 class="one">设置了one类的一段h1标签文本</h1>
+    <p>
+      标签指定式又称交集选择器，由一个标记选择器和一个class选择器/ID选择器组成，如：h.one或h#one
+    </p>
+  </body>
+</html>

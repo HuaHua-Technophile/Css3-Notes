@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>14-2-3transform的skew倾斜变形</title>
+    <style type="text/css">
+      div[class^="div"] {
+        width: 250px;
+        height: 250px;
+        margin: 50px auto;
+        line-height: 250px;
+        text-align: center;
+        background: linear-gradient(45deg, #0000ff80, #ff000080);
+        border-radius: 20px;
+        box-shadow: 2px 2px 3px black;
+        transition: all 1s;
+      }
+      .div2:hover {
+        transform: skew(150deg);
+      }
+      .div3:hover {
+        transform: skew(-30deg, 45deg);
+      }
+      p {
+        background: linear-gradient(
+          165deg,
+          #ff006a52,
+          #00e1ff52,
+          #645d0052,
+          #64004852,
+          #64520052,
+          #00643252,
+          #64000052
+        );
+        padding: 13px;
+        border-radius: 20px;
+        width: fit-content;
+        margin: 50px auto auto auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div>
+        <div class="div2">我是元素2经过倾斜变形</div>
+        <div class="div3">我是元素3经过倾斜变形</div>
+      </div>
+    </div>
+    <p>
+      CSS中，skew属性的作用是倾斜元素，可以沿着Y轴或X轴进行扭曲变换(将元素的竖边与横边分别依照设置属性值(deg)进行逆时针倾斜)
+      <br />skew: none | angle [ angle ]?
+      <br />其中，angle表示在Y轴或X轴上的倾斜角度。如果只有一个值，表示只在Y轴上(元素的竖边)倾斜。如果有两个值，表示在Y轴和X轴分别倾斜。none表示不应用倾斜效果。
+      <br />其有效值以0~180deg为一个周期，为“逆时针”倾斜。90deg为不可见
+    </p>
+  </body>
+</html>

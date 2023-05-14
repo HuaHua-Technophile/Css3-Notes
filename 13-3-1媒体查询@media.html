@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>13-3-1媒体查询@media</title>
+  </head>
+  <body>
+    <pre>
+@media not|only 媒体类型 and (媒体特性) {
+  CSS代码;
+}
+</pre
+    >
+    <p>其中，not、only和and是可选的逻辑操作符，用于组合或否定媒体查询</p>
+    <ol>
+      <li>
+        媒体查询中的“与”逻辑:
+        <br />@media screen and (min-width: 400px) and (orientation: landscape)
+        {/*视口至少为 400 像素宽，且设备横放时*/}
+      </li>
+      <li>
+        媒体查询中的“或”逻辑:使用逗号分开这些查询
+        <br />@media screen and (min-width: 400px), screen and (orientation:
+        landscape) {/*视口至少为 400 像素宽的时候或者设备处于横放状态*/}
+      </li>
+      <li>
+        媒体查询中的“非”逻辑:你可以用not操作符让整个媒体查询失效。这就直接反转了整个媒体查询的含义
+        <br />@media not all and (orientation: landscape)
+        {只会在朝向为竖着的时候应用样式}
+      </li>
+    </ol>
+    <ol>
+      媒体类型描述了设备的一般类别，
+      <li>all：默认值，用于所有媒体类型设备。</li>
+      <li>print：用于打印机。</li>
+      <li>screen：用于计算机屏幕、平板电脑、智能手机等等。</li>
+      <li>speech：用于大声“读出”页面的屏幕阅读器。</li>
+      <pre>
+        @media print {
+          body {
+            font-size: 12pt;
+          }
+        }
+        </pre
+      >
+      这个媒体查询会在页面被打印的时候把 body 的字体大小设为 12pt
+    </ol>
+    <p>媒体特性描述了设备的具体特征，如宽度、高度、分辨率、颜色等</p>
+    <pre>
+@media screen and (max-width: 400px) {
+        body {
+            color: blue;/*让颜色在视口窄于 400 像素的时候变成蓝色*/
+        }
+    }
+</pre
+    >
+    <p>
+      @media (orientation: landscape / portrait) {/*设备处于横向/纵向的时候改变
+      body 文本颜色*/}
+    </p>
+    <p>
+      @media (hover: hover) {}<br />
+      hover媒体特征意味着你可以测试用户是否能在一个元素上悬浮，这也基本就是说他们正在使用某种指点设备，因为触摸屏和键盘导航是没法实现悬浮的。如果我们知道用户不能悬浮的话，我们可以默认显示一些交互功能。对于能够悬浮的用户，我们可以选择在悬浮在链接上的时候，让这些功能可用。
+    </p>
+    <h1>移动端优先的响应式设计</h1>
+    <p>
+      你可以采用两种方式实现响应式设计。你可以从桌面或者最宽的视图开始，然后随着视口变得越来越小，加上断点，把物件挪开；你也可以从最小的视图开始，随着视口变得越来越大，增添布局内容。第二种方式被叫做移动优先的响应式设计，很多时候是最值得仿效的做法。
+    </p>
+    <p>
+      用在最小的那个设备上的视图很多时候都是一个简单的单列内容，很像正常文本流显示的那样。这意味着，你很可能不需要为小设备做多少布局设计，合适地安排下你的源代码，默认情况下你就可以得到可读的布局。
+    </p>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "id": "3907591",
+  "name": "鸡你太美",
+  "font_family": "JiNiTaiMei",
+  "css_prefix_text": "Ji",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "10201",
+      "name": "美",
+      "font_class": "mei",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "4294082",
+      "name": "太阳",
+      "font_class": "taiyang",
+      "unicode": "e78b",
+      "unicode_decimal": 59275
+    },
+    {
+      "icon_id": "6303465",
+      "name": "鸡",
+      "font_class": "ji",
+      "unicode": "e693",
+      "unicode_decimal": 59027
+    }
+  ]
+}

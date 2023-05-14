@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>12-2-2-1浮动布局,float属性</title>
+    <style type="text/css">
+      :root {
+        background: url(./img/蓝色星空星河6070x3414.jpg) center fixed;
+        background-size: cover;
+        color: #c8c8c8;
+      }
+      .father {
+        background: rgba(0, 0, 0, 0);
+        border: solid 1px rgba(0, 0, 0, 0);
+        /*必须设置父元素盒子，才能使下面的示例生效*/
+      }
+      .box1,
+      .box2,
+      .box3 {
+        box-sizing: border-box;
+        height: 150px;
+        margin: 30px;
+        padding: 50px;
+        line-height: 50px;
+        font-size: 30px;
+        text-align: center;
+        border: solid #c8c8c8;
+        border-radius: 50px;
+        background: rgba(190, 0, 248, 0.247);
+        box-shadow: 15px 15px 20px #05004d;
+      }
+      .box1,
+      .box2,
+      .box3 {
+        float: left;
+      }
+      p {
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="father">
+      <div class="box1">box1</div>
+      <div class="box2">box2</div>
+      <div class="box3">box3</div>
+      <p>
+        float属性可以使得元素浮动，将会脱离标准文档流的控制。
+        <br />float的常用参数值：left(左浮动)、right(右浮动)、none(默认，不浮动)。
+        <br />拖动页面大小，可以发现这些p段落文本将环绕盒子，出现图文混排的网页效果
+      </p>
+    </div>
+  </body>
+</html>

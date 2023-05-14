@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>12-1-6border-radius设置边框圆角</title>
+    <style>
+      @font-face {
+        font-family: "Babylon Industrial";
+        src: url(font/Babylon\ Industrial.ttf);
+      }
+      .logo {
+        font-size: 200px;
+        /*字体大小*/
+        color: #ffffff;
+        /*logo字体颜色*/
+        font-family: "Babylon Industrial";
+        /*字体样式*/
+        text-align: center;
+        line-height: 355px;
+        /*文字左右直接设置居中，上下居中使行高等于盒子高度即可*/
+        height: 350px;
+        width: 350px;
+        /*盒子宽高*/
+        background: #ff7e00;
+        /*logo背景色*/
+        border-radius: 100px;
+        /*四边框圆角半径，超过字体大小则不会再增加圆润度*/
+        margin: 50px auto;
+        /*盒子上下的外边距，以及左右居中*/
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <li>border-radius: radius; 设置一个半径，用于所有四个角。</li>
+      <li>
+        border-radius: top-left-and-bottom-right top-right-and-bottom-left;
+        设置两个半径，分别用于左上角和右下角，以及右上角和左下角。
+      </li>
+      <li>
+        border-radius: top-left top-right-and-bottom-left bottom-right;
+        设置三个半径，分别用于左上角，右上角和左下角，以及右下角。
+      </li>
+      <li>
+        border-radius: top-left top-right bottom-right bottom-left;
+        设置四个半径，分别用于四个角。
+      </li>
+      <li>
+        border-radius: radius / radius;
+        设置一个水平半径和一个垂直半径，用于创建椭圆形的角。
+      </li>
+      <li>
+        border-radius: top-left-and-bottom-right top-right-and-bottom-left /
+        top-left-and-bottom-right top-right-and-bottom-left;
+        设置两个水平半径和两个垂直半径，分别用于左上角和右下角，以及右上角和左下角。
+      </li>
+      <li>
+        border-radius: top-left top-right-and-bottom-left bottom-right /
+        top-left top-right-and-bottom-left bottom-right;
+        设置三个水平半径和三个垂直半径，分别用于左上角，右上角和左下角，以及右下角。
+      </li>
+      <li>
+        border-radius: top-left top-right bottom-right bottom-left / top-left
+        top-right bottom-right bottom-left;
+        设置四个水平半径和四个垂直半径，分别用于四个角。
+      </li>
+    </p>
+    <p>
+      其中，radius可以是一个长度值或一个百分比值。长度值表示圆形的半径或椭圆的半轴。百分比值表示相对于元素的宽度或高度的比例。
+    </p>
+    <div class="logo">MI</div>
+  </body>
+</html>

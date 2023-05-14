@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>14-2-4transform的rotate旋转</title>
+    <style type="text/css">
+      .wrapper {
+        perspective: 15cm;
+      }
+      .wrapper > div {
+        background: #000000a9;
+        box-shadow: 2px 2px 3px black;
+        transform-style: preserve-3d;
+        transform: rotateY(20deg);
+      }
+      div[class^="div"] {
+        width: 250px;
+        height: 250px;
+        margin: 50px auto;
+        line-height: 250px;
+        text-align: center;
+        background: linear-gradient(45deg, #0000ff80, #ff000080);
+        border-radius: 20px;
+        box-shadow: 2px 2px 3px black;
+        transition: all 1s;
+      }
+      .div1:hover {
+        transform: rotateX(45deg);
+      }
+      .div2:hover {
+        transform: rotateY(45deg);
+      }
+      .div3:hover {
+        transform: rotateZ(45deg);
+      }
+      .div4:hover {
+        transform: rotate3d(-1, -1, 0, 45deg);
+      }
+      p {
+        background: linear-gradient(
+          165deg,
+          #ff006a52,
+          #00e1ff52,
+          #645d0052,
+          #64004852,
+          #64520052,
+          #00643252,
+          #64000052
+        );
+        padding: 13px;
+        border-radius: 20px;
+        width: fit-content;
+        margin: 10px auto;
+        transition: all 0.7s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div>
+        <div class="div1">rotateX(45deg)</div>
+        <div class="div2">rotateY(45deg)</div>
+        <div class="div3">rotateZ(45deg)</div>
+        <div class="div4">rotate3d(-1, -1, 0, 45deg)</div>
+      </div>
+    </div>
+    <p>
+      CSS中，rotate属性的作用是旋转元素，可以沿着X轴、Y轴或Z轴进行旋转变换
+      <br />rotate: none | angle | [ x | y | z ] && angle
+      <br />其中，angle表示旋转的角度，可以是正值或负值。如果只有一个角度值，表示沿着Z轴旋转。如果有一个轴名和一个角度值，表示沿着该轴旋转。如果有三个值和一个角度值，表示定义一个向量，沿着该向量旋转。none表示不应用旋转效果
+      <br />其有效值以0~360deg为一个周期，为“顺时针”旋转
+    </p>
+    <p>rotate3d:以(x,y,z)到原点的向量，旋转angle度</p>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>12-1-4text-overflow单行文本溢出隐藏,多行文本溢出隐藏案例</title>
+    <style type="text/css">
+      * {
+        padding: 0;
+        margin: 0;
+        color: #c8c8c8;
+      }
+      body {
+        background: #1e1e1e;
+      }
+      div {
+        width: 300px;
+        height: 200px;
+        margin: 10px;
+        border: 1px solid red;
+        float: left;
+      }
+      .div2 {
+        white-space: nowrap; /*强制文本不能换行*/
+        overflow: hidden; /*修剪溢出文本*/
+        text-overflow: ellipsis; /*用省略标示被修剪的文本,需搭配前两个,仅在单行文本中生效*/
+      }
+      .div3 {
+        display: -webkit-box; /* 设置元素为伸缩盒模型(13-2-1) */
+        -webkit-box-orient: vertical; /* 修改伸缩盒模型的主轴方向为竖直 */
+        -webkit-line-clamp: 4; /* 控制伸缩盒在第几行显示省略号 */
+        overflow: hidden; /* 修剪溢出内容 */
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      text-overflow属性用于确定如何提示用户存在隐藏的溢出内容。它的形式可以是裁剪、显示一个省略号或显示一个自定义字符串为了让文本能够溢出容器，你需要在元素上添加几个额外的属性：overflow和white-space。例如：
+      overflow: hidden; white-space: nowrap;
+    </p>
+    <p>
+      text-overflow属性只对那些在块级元素溢出的内容有效，但是必须要与块级元素内联（inline）方向一致（举个反例：文本无法在盒子的下方溢出）
+    </p>
+    <p>
+      text-overflow属性可以有以下几个值：
+      <li>
+        clip：默认值，这个关键字会在内容区域的极限处截断文本，因此可能会在单词的中间发生截断
+      </li>
+      <li>
+        ellipsis：这个关键字会用一个省略号（ '…' 、 U+2026 HORIZONTAL
+        ELLIPSIS）来表示被截断的文本。这个省略号被添加在内容区域中，因此会减少显示的文本
+      </li>
+      <li>
+        string：这个值用来表示被截断的文本。字符串内容将被添加在内容区域中，所以会减少显示出的文本
+      </li>
+      <li>
+        fade：这个关键字将会截断行内溢出文本并在完全透明的行边缘添加一个淡出特效
+      </li>
+      <li>
+        fade ( length | percentage
+        )：这个函数将会截断行内溢出文本并在完全透明的行边缘添加一个淡出特效。参数决定淡出特效的距离
+      </li>
+    </p>
+    <div class="div1">
+      Love plays a pivotal role in our life. Love makes you feel wanted. Without
+      love a person could go haywire and also become cruel and ferocious. In the
+      early stage of our life, our parents are the ones who showed us with
+      unconditional love and care, they teach us about what is right and wrong,
+      good and bad. But we always tend to take this for granted. It is only
+      after marriage and having kids that a person understands and becomes
+      sensitive to others feelings. Kids make a person responsible and mature
+      and help us to understand life better.
+    </div>
+    <div class="div2">
+      单行文本溢出隐藏 Love plays a pivotal role in our life. Love makes you
+      feel wanted. Without love a person could go haywire and also become cruel
+      and ferocious. In the early stage of our life, our parents are the ones
+      who showed us with unconditional love and care, they teach us about what
+      is right and wrong, good and bad. But we always tend to take this for
+      granted. It is only after marriage and having kids that a person
+      understands and becomes sensitive to others feelings. Kids make a person
+      responsible and mature and help us to understand life better.
+    </div>
+    <div class="div3">
+      多行文本溢出隐藏 Love plays a pivotal role in our life. Love makes you
+      feel wanted. Without love a person could go haywire and also become cruel
+      and ferocious. In the early stage of our life, our parents are the ones
+      who showed us with unconditional love and care, they teach us about what
+      is right and wrong, good and bad. But we always tend to take this for
+      granted. It is only after marriage and having kids that a person
+      understands and becomes sensitive to others feelings. Kids make a person
+      responsible and mature and help us to understand life better.
+    </div>
+  </body>
+</html>

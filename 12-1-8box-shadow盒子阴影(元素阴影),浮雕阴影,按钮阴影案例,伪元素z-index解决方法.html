@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>12-1-8box-shadow盒子阴影(元素阴影),浮雕阴影,按钮阴影案例</title>
+    <style>
+      body {
+        background: #999;
+      }
+      .div1_fa {
+        z-index: 999;
+      }
+      .div1 {
+        position: relative;
+        width: 600px;
+        height: 100px;
+        background: rgb(255, 204, 0);
+        border-radius: 20px;
+      }
+      .div1::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        left: 5%;
+        right: 5%;
+        bottom: 0;
+        border-radius: 10px;
+        background: rgb(102, 82, 0);
+        transform: translate(0, -15%) rotate(-4deg);
+        transform-origin: center center;
+        box-shadow: 0 0 15px 16px rgb(102, 82, 0);
+      }
+      p {
+        font-size: 80px;
+        color: #999;
+        text-shadow: 1px 1px 1px #fff, -1px -1px 1px #000;
+      }
+      .div2_fa {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: calc(100% - 50px);
+        height: 200px;
+        margin: 50px;
+        background: #e9ecef;
+      }
+      .div2 {
+        width: 120px;
+        height: 120px;
+        background: #e9ecef;
+        border-radius: 10px;
+        transition: 0.2s all;
+        box-shadow: 7px 7px 12px rgba(0, 0, 0, 0.4),
+          -7px -7px 12px rgba(255, 255, 255, 0.9);
+        /* inset 0 0 0 rgba(255, 255, 255, 0.9), inset 0 0 0 rgba(0, 0, 0, 0.4); */
+      }
+      .div2:hover {
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0.4), 0 0 0 rgba(255, 255, 255, 0.9),
+          inset -7px -7px 12px rgba(255, 255, 255, 0.9),
+          inset 7px 7px 12px rgba(0, 0, 0, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      box-shadow属性可以给元素添加一个或多个阴影效果。你可以设置阴影的水平偏移，垂直偏移，模糊半径，扩展半径和颜色。你也可以使用inset关键字来创建内阴影。box-shadow属性的语法如下：
+      <li>box-shadow: none; 取消阴影效果</li>
+      <li>
+        box-shadow: offset-x offset-y color; 设置阴影的水平偏移，垂直偏移和颜色
+      </li>
+      <li>
+        box-shadow: offset-x offset-y blur-radius color;
+        设置阴影的水平偏移，垂直偏移，模糊半径和颜色
+      </li>
+      <li>
+        box-shadow: offset-x offset-y blur-radius spread-radius color;
+        设置阴影的水平偏移，垂直偏移，模糊半径，扩展半径和颜色
+      </li>
+      <li>
+        box-shadow: inset offset-x offset-y color;
+        设置内阴影的水平偏移，垂直偏移和颜色
+      </li>
+      <li>box-shadow: shadow1, shadow2, ...; 设置多个阴影效果，用逗号分隔</li>
+    </p>
+    <p>
+      其中，offset-x和offset-y是必须的长度值，表示阴影相对于元素的位置。正值表示向右或向下，负值表示向左或向上
+      <br />blur-radius和spread-radius是可选的长度值，表示阴影的模糊程度和大小。
+      <br />color是可选的颜色值，表示阴影的颜色
+      <br />inset是可选的关键字，表示内阴影
+    </p>
+    <div class="div1_fa">
+      <div class="div1"></div>
+    </div>
+    <div class="div2_fa">
+      <div class="div2"></div>
+    </div>
+  </body>
+</html>

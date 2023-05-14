@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>
+      9-3-1linear-gradient线性渐变repeating-linear-gradient重复线性渐变
+    </title>
+    <style>
+      div {
+        width: 90vw;
+        height: 30vh;
+        margin: 2.5vw;
+      }
+      .div1 {
+        background-image: linear-gradient(
+          to right bottom,
+          blue,
+          red
+        ); /*创建了一个从左上角到右下角、从蓝色渐变到红色的线性渐变：*/
+      }
+      .div2 {
+        background-image: repeating-linear-gradient(
+          red,
+          yellow 10%,
+          green 20%
+        ); /*一个沿着默认方向(向下)、由红色、黄色和绿色组成的重复线性渐变：*/
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <li>
+        线性渐变是一种表示两种或多种颜色线性过渡的图片，可以用于背景或其他图形元素
+      </li>
+      <li>
+        线性渐变可以使用linear-gradient()函数来创建，其语法如下：linear-gradient([angle|toside-or-corner,]?color-stop-list)
+      </li>
+      <li>
+        其中，angle是一个角度值，用于指定渐变的方向或角度；
+        toside-or-corner是一个关键词，用于指定渐变线的起始点位置；
+        未设置渐变角度或渐变起始点位置时。默认180deg，也就是to bottom，向下渐变
+      </li>
+      <li>
+        color-stop-list是一个由两个或多个颜色终止点组成的列表，用于指定渐变的颜色和位置
+      </li>
+      <li>
+        如果要创建重复的线性渐变，可以使用repeating-linear-gradient()函数，其语法和linear-gradient()函数相同
+      </li>
+    </p>
+    <div class="div1"></div>
+    <div class="div2"></div>
+  </body>
+</html>

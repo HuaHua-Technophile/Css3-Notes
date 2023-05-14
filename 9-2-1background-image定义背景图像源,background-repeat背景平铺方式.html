@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>
+      9-2-1background-image定义背景图像源,background-repeat背景平铺方式
+    </title>
+    <style>
+      div {
+        width: 90vw;
+        height: 30vw;
+        background-image: url(./img/huaweilogo.jpg);
+      }
+      .space {
+        background-repeat: space;
+      }
+      .round {
+        background-repeat: round;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      background-image是CSS的一个属性，它用于为一个元素设置一个或者多个背景图像。你可以用它来创建图层叠加，渐变，或者重复平铺
+    </p>
+    <p>background-image:image|none;</p>
+    <p>
+      其中image可以是一个url()函数，指定一个图像的地址，或者是一个gradient函数，指定一个渐变的颜色。none是一个表示无背景图的关键字。你可以用逗号分隔多个值来指定多个背景图像，它们会按照顺序从上到下绘制。
+    </p>
+    <p>
+      background-repeat 是 CSS 的一个属性，它用于定义背景图像的重复方式
+      你可以用它来控制背景图像是沿着水平轴，垂直轴，两个轴重复，或者根本不重复。background-repeat
+      的语法是这样的：background-repeat: repeat-style;
+    </p>
+    <p>
+      其中repeat-style可以是以下的值之一：
+      <li>
+        repeat:背景图像会按需重复来覆盖整个背景图片所在的区域。最后一个图像会被裁剪。这是默认值
+      </li>
+      <li>repeat-x: 背景图像只会在水平方向上重复。</li>
+      <li>repeat-y: 背景图像只会在垂直方向上重复。</li>
+      <li>
+        no-repeat:背景图像不会被重复。图像只会显示一次，位置由background-position属性决定。
+      </li>
+      <li>
+        space:
+        背景图像会尽可能地重复，但是不会裁剪。第一个和最后一个图像会被固定在元素的相应的边上，同时空白会均匀地分布在图像之间。background-position属性会被忽略，除非只有一个图像能被无裁剪地显示。
+      </li>
+      <li>
+        round:背景图像会重复并缩放或拉伸来填充空间（没有空隙）。当有足够的空间来添加一个图像时，所有的当前的图像会被压缩来腾出空间。
+      </li>
+    </p>
+    <p>
+      你还可以使用双值语法来指定水平和垂直方向上不同的重复方式，例如：
+      background-repeat: repeat no-repeat;
+      这表示背景图像在水平方向上重复，在垂直方向上不重复。
+    </p>
+    <div class="space">请尝试全屏预览</div>
+    <div class="round">请尝试全屏预览</div>
+  </body>
+</html>

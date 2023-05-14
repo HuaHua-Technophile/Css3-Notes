@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>13-2-1box伸缩盒布局,line-clamp限制文本行数属性</title>
+  </head>
+  <body>
+    <ol>
+      display:box是CSS中一种旧的伸缩盒模型的属性，用于将元素设置为弹性容器，使其子元素可以在任何方向上排布和伸缩。display:box的相关属性有：
+      <li>box-orient：用于控制主轴的方向</li>
+      <li>box-direction：用于控制子元素在主轴上的排列顺序</li>
+      <li>box-align：用于控制子元素在交叉轴上的对齐方式</li>
+      <li>box-flex：用于控制子元素的伸缩比例</li>
+      <li>
+        box-flex-group：用于将子元素分组，不同组的子元素有不同的伸缩优先级
+      </li>
+      <li>box-lines：用于控制当子元素超出容器时是否换行</li>
+      <li>box-ordinal-group：用于控制子元素在主轴上的显示顺序</li>
+      <li>box-pack：用于控制子元素在主轴上的分布方式</li>
+    </ol>
+    <p>
+      display:box已经被新的弹性盒模型（display:flex）所取代，不建议在现代浏览器中使用
+    </p>
+    <style>
+      .container {
+        height: 400px;
+        /* display: box; */
+        display: -webkit-box; /* 2009版 iOS 6- , Safari 3.1-6 */
+        /*display: -moz-box;  2009版 Firefox 19- (存在缺陷) */
+        /*box-orient: vertical;  设置一个伸缩盒容器，竖直排列子元素 */
+        -webkit-box-orient: vertical;
+        /* -moz-box-orient: vertical; */
+        -webkit-box-direction: reverse; /*主轴的起始方向变更,也就是从右到左或者从下到上*/
+      }
+      .item {
+        border: 1px solid red;
+        /*box-flex: 1;  设置子元素的伸缩比例为1，即平均分配空间 */
+        -webkit-box-flex: 1;
+        /* -moz-box-flex: 1; */
+      }
+      .item:first-child {
+        /*box-flex: 2;  设置第一个子元素的伸缩比例为2，即占据两倍的空间 */
+        -webkit-box-flex: 2;
+        /* -moz-box-flex: 2; */
+      }
+    </style>
+
+    <div class="container">
+      <div class="item">Item 1</div>
+      <div class="item">Item 2</div>
+      <div class="item">Item 3</div>
+    </div>
+    <p>
+      line-clamp属性是一个不规范的CSS属性，用于限制在一个块元素显示的文本的行数。它只有在伸缩盒模型并且主轴方向为竖向才会生效
+    </p>
+    <p>
+      line-clamp属性的语法如下： line-clamp: [none | integer];
+      <br />其中，none 表示不限制行数，integer 表示限制的行数，必须大于0。
+    </p>
+    <p>
+      line-clamp属性的效果是，在文本超过指定的行数时，显示省略号（...）来表示省略的内容。为了实现这个效果，还需要设置overflow属性为hidden。
+      <br />line-clamp属性的一个典型应用场景是，在移动端显示文章列表时，限制每篇文章的标题或摘要的行数，以保持列表的整齐和美观
+    </p>
+    <style>
+      .line4 {
+        width: 150px;
+        border: 1px red solid;
+        overflow: hidden; /* 修剪溢出内容 */
+        display: -webkit-box; /* 设置元素为伸缩盒模型(13-2-1) */
+        -webkit-box-orient: vertical; /* 修改伸缩盒模型的主轴方向为竖直 */
+        -webkit-line-clamp: 4; /* 控制伸缩盒在第几行显示省略号 */
+      }
+    </style>
+    <div class="line4">
+      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+      AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+    </div>
+  </body>
+</html>

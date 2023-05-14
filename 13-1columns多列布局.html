@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title> </title>
+    <style>
+      .container {
+        width: 100%;
+        min-width: 700px;
+        margin: 0 auto;
+        border: 1px solid black;
+        columns: 3 200px;
+        column-gap: 20px;
+        column-rule: 1px solid red;
+      }
+      h2 {
+        text-align: center;
+        column-span: all;
+      }
+    </style>
+  </head>
+  <body>
+    <p>多列布局是一种让文本可以分成多个列，就像报纸那样的布局方式。¹</p>
+    <ol>
+      多列布局有以下几个相关的属性：
+      <li>
+        column-count：指定列的数量，如果没有指定或为auto，则根据column-width和容器宽度自动计算
+      </li>
+      <li>
+        column-width：指定列的理想宽度，如果没有指定或为auto，则根据column-count和容器宽度自动计算
+      </li>
+      <li>
+        columns：是column-count和column-width的简写属性，可以同时指定两者或其中之一
+      </li>
+      <li>column-gap：指定列之间的间距，如果没有指定或为normal，则默认为1em</li>
+      <li>
+        column-rule：是column-rule-width、column-rule-style和column-rule-color的简写属性，可以同时指定三者或其中之一，用于绘制列之间的分隔线.用法和取值都与border类似
+      </li>
+      <li>
+        column-span：指定元素是否要跨越所有列或只占一列，取值为all或none，默认为none
+      </li>
+      <li>
+        column-fill：指定如何在不同列之间平衡内容的高度，取值为balance或auto，默认为balance
+      </li>
+    </ol>
+    <div class="container">
+      <h2>CSS Multi-column Layout</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem
+        vitae nisi consequat vehicula. Donec at nisl quis lectus tincidunt
+        aliquet. Fusce vitae leo quis eros tincidunt sagittis. Sed id nunc sit
+        amet elit lacinia malesuada. Morbi auctor, augue vitae lacinia commodo,
+        justo urna aliquam leo, ut blandit arcu eros sed velit. Suspendisse
+        potenti. Duis ut diam quis lorem ullamcorper ultrices. Curabitur euismod
+        risus et justo consectetur, ac ullamcorper sapien fermentum. Cras
+        euismod leo id nisl ultrices, id condimentum quam aliquet.
+      </p>
+      <p>
+        Nulla facilisi. Sed auctor magna vel lacus mattis, non tincidunt massa
+        rutrum. Proin sed mi ut nisi varius fringilla. Quisque eget augue vitae
+        enim sagittis aliquam. In hac habitasse platea dictumst. Praesent eget
+        lorem vitae augue imperdiet malesuada. Phasellus sit amet semper tellus.
+        Pellentesque habitant morbi tristique senectus et netus et malesuada
+        fames ac turpis egestas.
+      </p>
+      <p>
+        Etiam sit amet augue quis libero tincidunt ornare sit amet nec purus.
+        Vivamus sed tellus quis erat ornare luctus at quis lacus. Donec in quam
+        at arcu faucibus suscipit id eget ligula. Morbi vel massa eget lectus
+        ultricies mollis id ac sapien. Mauris euismod semper lectus, nec
+        consequat nisl luctus non. Nulla facilisi. Donec auctor ex id leo
+        malesuada, vitae fermentum massa mattis.
+      </p>
+    </div>
+  </body>
+</html>

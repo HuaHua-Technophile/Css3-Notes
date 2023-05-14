@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>7-2-13：link：visited锚点伪类：hover：active：focus行为伪类</title>
+    <style>
+      a {
+        font-size: 50px;
+      }
+      /* 可以用 :visited 选择器和 :link选择器一起来区分已访问和未访问的链接。
+      这段代码会把未访问的链接显示为绿色，已访问的链接显示为紫色。 */
+      a:link {
+        color: green !important;
+      }
+      a:visited {
+        color: purple;
+      }
+      /* :visited 选择器和 :hover选择器一起来改变鼠标悬停在已访问链接上时的样式。
+      这段代码会把已访问的链接的颜色变成粉色，当鼠标悬停在上面时。 */
+      a:visited:hover {
+        color: pink;
+      }
+      /* :visited 选择器和 :active选择器一起来改变点击已访问链接时的样式。
+      这段代码会把已访问的链接的颜色变成红色，当点击它们时 */
+      a:visited:active {
+        color: red;
+      }
+      .a4:hover:active:focus {
+        color: yellow;
+        font-weight: bold;
+      }
+      input:focus {
+        border: 50px solid skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <a href="#1">:link选中未访问的锚点，:visited选择已访问的锚点</a>
+    </p>
+    <p>
+      <a href="#2">:hover 选择器用于设置鼠标指针悬停在元素上时的样式</a>
+    </p>
+    <p>
+      <a href="#3">:active 选择器用于设置元素被激活（通常是被点击）时的样式</a>
+    </p>
+    <p>
+      <a href="#4" class="a4"
+        >:focus
+        选择器用于设置元素获得焦点（通常是通过键盘或鼠标点击）时的样式</a
+      >
+    </p>
+    <input type="text" value="将焦点选中我，我的边框会变" />
+  </body>
+</html>

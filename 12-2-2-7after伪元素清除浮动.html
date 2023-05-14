@@ -1,0 +1,81 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>12-2-2-7after伪元素清除浮动</title>
+    <style type="text/css">
+      :root {
+        background: url(./img/粉色银河2886x4329.jpg) center fixed;
+        background-size: cover;
+        color: #c8c8c8;
+      }
+      .father {
+        /*未对父元素定义高度*/
+        background: rgba(0, 0, 0, 0);
+        border: solid 10px rgba(3, 0, 197, 0.466);
+        border-radius: 70px;
+      }
+      .father::after {
+        display: block;
+        /*必填，设置其为块状元素*/
+        content: "";
+        /*不插入任何内容，也得写上*/
+        height: 0;
+        /*高度为0,不然父元素有可能莫名其妙被增高几像素*/
+        clear: both;
+      }
+      .box1,
+      .box2,
+      .box3 {
+        box-sizing: border-box;
+        height: 200px;
+        margin: 30px;
+        padding: 50px;
+        line-height: 100px;
+        font-size: 30px;
+        text-align: center;
+        border: solid #c8c8c8;
+        border-radius: 50px;
+        background: rgba(190, 0, 248, 0.247);
+        box-shadow: 15px 15px 20px #05004d;
+      }
+      .box1,
+      .box2,
+      .box3 {
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="father">
+      <div class="box1">box1</div>
+      <div class="box2">box2</div>
+      <div class="box3">box3</div>
+    </div>
+    <p>
+      方法三：对父元素开启after伪元素(before不行),为该伪元素设置"clear:both"
+      <br />任何伪元素对象想要生成在文档流中，就必须设置"content"来插入指定插入的内容
+      <br />在此例中，即使只是用于清除浮动影响，不设置插入的内容，也必须写上空的“content:"";”
+      <br />同时，伪元素高度需设置为0，否则父元素可能会比实际高出几像素
+    </p>
+    <p>
+      通过after伪元素，选中box1的后边
+      <br />可以通过after伪类向元素的最后添加一个空白的块元素，然后对其清除浮动
+      <br />这样做和添加一个div的原理一样，可以达到一个相同的效果,而且不会在页面中添加多余的div
+      <br />这是我们最推荐使用的方式，几乎没有副作用
+    </p>
+  </body>
+</html>

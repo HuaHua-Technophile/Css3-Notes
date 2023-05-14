@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>14-2-2transform的scale缩放变形</title>
+    <style type="text/css">
+      div[class^="div"] {
+        width: 250px;
+        height: 250px;
+        margin: 50px auto;
+        line-height: 250px;
+        text-align: center;
+        background: linear-gradient(45deg, #0000ff80, #ff000080);
+        border-radius: 20px;
+        box-shadow: 2px 2px 3px black;
+        transition: all 1s;
+      }
+      .div1:hover {
+        transform: scale(-0.7, 1.2);
+      }
+      p {
+        background: linear-gradient(
+          165deg,
+          #ff006a52,
+          #00e1ff52,
+          #645d0052,
+          #64004852,
+          #64520052,
+          #00643252,
+          #64000052
+        );
+        padding: 13px;
+        border-radius: 20px;
+        width: fit-content;
+        margin: 50px auto auto auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div1">我是元素2且经过缩放变形</div>
+    <p>
+      CSS中，scale属性的作用是改变元素的大小，可以沿着X轴、Y轴和Z轴进行缩放变换
+      它的语法如下
+      <br />scale: none | number-percentage [ number-percentage number?]?
+    </p>
+    <p>
+      其中，number-percentage可以是数字或百分比，表示在X轴或Y轴上的缩放因子。如果只有一个值，表示在X轴和Y轴上等比例缩放。如果有两个值，表示在X轴和Y轴上分别缩放。如果有三个值，表示在X轴、Y轴和Z轴上分别缩放
+      none表示不应用缩放效果
+      <br />0~1为缩小，1~+∞为放大，0~-1为翻转后缩小。-1~-∞为翻转后放大
+    </p>
+  </body>
+</html>

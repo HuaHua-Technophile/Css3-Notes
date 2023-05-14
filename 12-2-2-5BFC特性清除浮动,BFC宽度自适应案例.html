@@ -1,0 +1,124 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>12-2-2-5BFC特性清除浮动,BFC宽度自适应案例</title>
+    <style>
+      .father1 {
+        width: 80%;
+        margin: 0 auto;
+        border: 1px solid black;
+      }
+      .red {
+        width: 200px;
+        height: 200px;
+        background: rgba(255, 91, 91, 0.3);
+        border: 10px rgba(255, 115, 0, 4) outset;
+        border-radius: 15px;
+        float: left;
+      }
+      .blue {
+        /*当此元素是浮动的red元素的同级，此时开启BFC特型，并且不指定宽度，可以让该blue元素自适应宽度填满父元素*/
+        /* width: 200px;  */
+        height: 300px;
+        background: rgba(51, 184, 255, 0.3);
+        border: 20px rgba(212, 0, 255, 0.4) double;
+        border-radius: 15px;
+        overflow: hidden;
+      }
+      .father2 {
+        /*未对父元素定义高度*/
+        background: rgba(0, 0, 0, 0);
+        border: solid 10px rgba(3, 0, 197, 0.466);
+        border-radius: 70px;
+        overflow: hidden;
+        /*6-7溢出属性的修剪方式*/
+        /*overflow属性设置hidden参数值，可以清除子元素浮动对父元素的影响*/
+      }
+      .box1,
+      .box2,
+      .box3 {
+        box-sizing: border-box;
+        height: 200px;
+        margin: 30px;
+        padding: 50px;
+        line-height: 100px;
+        font-size: 30px;
+        text-align: center;
+        border: solid #c8c8c8;
+        border-radius: 50px;
+        background: rgba(190, 0, 248, 0.247);
+        box-shadow: 15px 15px 20px #05004d;
+      }
+      .box1,
+      .box2,
+      .box3 {
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+    <ol>
+      根据W3C的标准，在页面中元素都一个隐含的属性叫做Block Formatting
+      Context,简称BFC，该属性可以设置打开或者关闭，默认是关闭的。当开启元素的BFC以后，元素将会具有如下的特性：
+      <li>内部的Box会在垂直方向，一个接一个地放置。</li>
+      <li>
+        Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠
+      </li>
+      <li>
+        每个元素的margin box的左边， 与包含块border
+        box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。
+      </li>
+      <li>BFC的区域不会与float box重叠。</li>
+      <li>
+        BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。
+      </li>
+      <li>计算BFC的高度时，浮动元素也参与计算</li>
+    </ol>
+    <ol>
+      BFC有哪些作用：
+      <li>自适应两栏布局</li>
+      <li>可以阻止元素被浮动元素覆盖</li>
+      <li>可以包含浮动元素——清除内部浮动</li>
+      <li>分属于不同的BFC时可以阻止margin重叠</li>
+    </ol>
+    <ol>
+      满足下列条件之一就可触发BFC
+      <li>根元素，即HTML元素</li>
+      <li>float的值不为none</li>
+      <li>overflow的值不为visible</li>
+      <li>display的值为inline-block、table-cell、table-caption</li>
+      <li>
+        position的值为absolute或fixed 可以清除子元素浮动对父元素高度的影响
+      </li>
+    </ol>
+    <div class="father1">
+      <a href="https://juejin.cn/post/6844903476774830094"
+        >[布局概念] 关于CSS-BFC深入理解</a
+      >
+      <div class="red"></div>
+      <div class="blue">
+        当此元素是浮动的red元素的同级，此时开启BFC特型，并且不指定宽度，可以让该blue元素自适应宽度填满父元素(自适应两栏布局)
+      </div>
+      <div class="blue"></div>
+    </div>
+    <div class="father2">
+      <div class="box1">box1</div>
+      <div class="box2">box2</div>
+      <div class="box3">box3</div>
+    </div>
+  </body>
+</html>

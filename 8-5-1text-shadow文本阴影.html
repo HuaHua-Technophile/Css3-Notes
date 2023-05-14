@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>8-5-1text-shadow文本阴影</title>
+    <style>
+      #p1 {
+        text-shadow: 0px 0px 10px green; /*0偏移,但有模糊半径,模拟外发光*/
+      }
+    </style>
+  </head>
+  <body>
+    <p id="p1">text-shadow: 水平偏移 垂直偏移 模糊半径 颜色;</p>
+    <p>
+      其中，水平偏移和垂直偏移是必须的，表示阴影相对于文本的位置
+      <br />模糊半径是可选的，表示阴影的模糊程度
+      <br />颜色也是可选的，表示阴影的颜色。如果不指定颜色，浏览器会自动选择一个颜色
+      <br />如果要给文本添加多个阴影，可以用逗号分隔多个阴影值。
+    </p>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>
+      12-1-2resize可拖动调整元素大小属性contenteditable元素可编辑属性
+    </title>
+    <style>
+      div {
+        float: left;
+        width: 100px;
+        height: 100px;
+        font-size: 50px;
+        border: 1px solid red;
+        margin: 10px;
+        overflow: auto; /*不能为visible*/
+      }
+      .resizeboth {
+        resize: both;
+      }
+      .resizehorizontal {
+        resize: horizontal;
+      }
+      .resizevertical {
+        resize: vertical;
+      }
+      .resizeblock {
+        resize: block;
+      }
+      .resizeinline {
+        resize: inline;
+      }
+      p[contenteditable="true"] {
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      resize属性允许你控制一个元素是否可以被用户调整大小，以及可以在哪个方向上调整¹。它有以下几个可能的值：
+      <li>none：元素不能被用户缩放</li>
+      <li>both：元素可以在水平和垂直方向上调整大小</li>
+      <li>horizontal：元素可以在水平方向上调整大小</li>
+      <li>vertical：元素可以在垂直方向上调整大小</li>
+      <li>
+        block：元素可以在块方向上调整大小，根据writing-mode和direction的值，可能是水平或垂直
+      </li>
+      <li>
+        inline：元素可以在行内方向上调整大小，根据writing-mode和direction的值，可能是水平或垂直
+      </li>
+    </p>
+    <p>
+      注意：resize属性只适用于overflow属性不为visible的元素，以及可选的替换元素（如图片，视频，iframe等）
+      <br />如果一个块级元素的overflow属性为visible，那么resize属性对该元素无效
+    </p>
+    <p>
+      contenteditable属性是HTML5新增的全局属性，用于标识元素内容是否可被用户编辑
+      <br />它可以有两个值：true或false
+      <br />true表示元素是可编辑的，false表示元素不是可编辑的。如果没有设置该属性的值，或者设置了无效的值，那么元素将从父元素继承该属性
+      <br />contenteditable属性可以用来实现一些简单的富文本编辑器，或者让用户自定义一些内容
+    </p>
+    <p contenteditable="true">这是一个可编辑的段落</p>
+    <div class="resizeboth">resizeboth</div>
+    <div class="resizehorizontal">resizehorizontal</div>
+    <div class="resizevertical">resizevertical</div>
+    <div class="resizeblock">resizeblock</div>
+    <div class="resizeinline">resizeinline</div>
+  </body>
+</html>

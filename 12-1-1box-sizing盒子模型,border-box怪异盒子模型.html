@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>12-1-1box-sizing盒子模型,border-box怪异盒子模型</title>
+    <style>
+      div {
+        float: left;
+        margin: 50px;
+        width: 300px;
+        height: 300px;
+        border: 50px solid pink;
+        padding: 30px;
+        background: skyblue content-box;
+      }
+      .border-box {
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      CSS中的box-sizing属性定义了用户代理应该如何计算一个元素的总宽度和总高度
+      <br />它有两个可能的值：content-box和border-box。
+    </p>
+    <p>
+      content-box是默认值，它表示元素的宽度和高度只包括内容区，不包括边框（border），内边距（padding），外边距（margin）
+      <br />例如，如果你设置一个元素的宽为100px，那么这个元素的内容区会有100px宽，并且任何边框和内边距的宽度都会被增加到最后绘制出来的元素宽度中
+    </p>
+    <p>
+      border-box表示元素的宽度和高度包括内容，内边距和边框，但不包括外边距
+      <br />例如，如果你设置一个元素的宽为100px，那么这100px会包含它的border和padding，内容区的实际宽度是width减去(border+padding)的值,这通常使得设置元素大小更容易
+    </p>
+    <div class="border-box"></div>
+    <div></div>
+  </body>
+</html>

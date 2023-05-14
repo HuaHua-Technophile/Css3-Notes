@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>9-2-4background-attachment背景固定显示</title>
+    <style>
+      .background-attachment {
+        /* 使用 fixed */
+        background-attachment: fixed; /* 背景图片相对于视口固定 */
+        /* 使用 scroll */
+        background-attachment: scroll; /* 背景图片随着页面的其余部分滚动而移动 */
+        /* 使用 local */
+        background-attachment: local; /* 背景图片相对于元素的内容固定 */
+        /* 使用多个值 */
+        background-attachment: fixed, scroll, local; /* 第一个背景层相对于视口固定，第二个背景层随着页面滚动，第三个背景层相对于元素内容固定 */
+      }
+    </style>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        height: 200vh;
+      }
+      div {
+        float: left;
+        width: 100%;
+        height: 300px;
+        overflow-y: scroll;
+        border: 1px solid red;
+        box-sizing: border-box;
+        background-image: url(./img/彩虹2200x1374.jpg);
+        background-size: contain;
+      }
+      .fixed {
+        background-attachment: fixed;
+      }
+      .scroll {
+        background-attachment: scroll;
+      }
+      .local {
+        background-attachment: local;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="scroll">
+      background-attachment: scroll;
+      <br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br />
+    </div>
+    <div class="local">
+      background-attachment: local;
+      <br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br />
+    </div>
+    <div class="fixed">
+      background-attachment: fixed;
+      <br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br />
+      <br /><br /><br /><br /><br /><br />
+    </div>
+    <p>
+      <li>
+        background-attachment 是 CSS
+        属性，用于设置背景图片的位置是在视口内固定，或者随着包含它的区块滚动
+      </li>
+      <li>background-attachment 可以使用三个值：fixed、scroll 或 local</li>
+      <li>
+        background-attachment 的默认值是
+        scroll，表示背景图片会随着页面的其余部分滚动而移动
+      </li>
+      <li>
+        background-attachment
+        可以指定一个或多个值，如果指定多个值，表示有多个背景层，用逗号分隔
+      </li>
+    </p>
+  </body>
+</html>

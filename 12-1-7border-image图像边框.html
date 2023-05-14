@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>12-1-7border-image图像边框</title>
+    <style>
+      .div1 {
+        width: 20px;
+        height: 20px;
+        background: pink;
+        border: solid 150px #000;
+        /* border-image: url(./img/恒星星云4k.jpg) 56% 45% 18%/150px 30%/30px space; */
+        border-image-source: url(./img/恒星星云4k.jpg);
+        border-image-slice: 56% 45% 18%; /*1~4个正数值(单位px)或者百分比,定义图像的裁切方式*/
+        border-image-width: 150px 30%; /*1~4个px值或者百分比,定义图像边框宽度*/
+        border-image-outset: 30px; /*1~4个px值.边框图像距离元素外边缘的距离,也就是边框向外扩展多少*/ /*向外扩展了30px,但是由于上下边框的宽度是固定值,所以上下边框不会变宽,而左右边框是30%的宽度,因此左右边框会变宽*/
+        border-image-repeat: space;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <li>
+        border-image是CSS属性，用于在元素的边框上绘制图像，替换掉元素的常规边框
+      </li>
+      <li>
+        border-image是一个简写属性，包括以下几个子属性：border-image-source、border-image-slice、border-image-width、border-image-outset和border-image-repeat
+      </li>
+      <li>
+        border-image 的语法如下： border-image: source slice width outset
+        repeat;
+      </li>
+    </p>
+    <p>
+      <li>其中，source 是一个图像值，用于指定边框图像的来源；</li>
+      <li>
+        slice
+        是1~4个数字或百分比值，用于指定如何切割边框图像；第1,3个数值控制竖直方向,若相加小于100%或小于图像高度,则会在边框延续;第2,4个数值控制水平方向,若相加小于100%或小于图像宽度,则会在边框延续
+      </li>
+      <li>width 是一个长度或百分比值，用于指定边框图像的宽度；</li>
+      <li>outset 是一个长度值，用于指定边框图像距离元素外边缘的距离；</li>
+      <li>
+        repeat是一个关键词，用于指定边框图像的重复方式;stretch:拉伸填充(默认值);repeat:平铺填充;round(平铺填充,会动态拉伸直至正好可以铺满);space(平铺填充,会动态调整间隙直到正好可以铺满)
+      </li>
+    </p>
+    <div class="div1"></div>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>4-7大风车作业</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        height: 100vh;
+        background: #1e1e1e;
+        perspective: 15cm;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #father {
+        width: 400px;
+        height: 300px;
+        transform-style: preserve-3d;
+        animation: Rotate 5s linear infinite;
+      }
+      #father img {
+        width: 400px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-origin: center;
+        backface-visibility: hidden;
+      }
+      #father img:nth-child(1) {
+        transform: rotateY(0deg);
+      }
+      #father img:nth-child(2) {
+        transform: rotateY(60deg);
+      }
+      #father img:nth-child(3) {
+        transform: rotateY(120deg);
+      }
+      #father img:nth-child(4) {
+        transform: rotateY(180deg);
+      }
+      #father img:nth-child(5) {
+        transform: rotateY(240deg);
+      }
+      #father img:nth-child(6) {
+        transform: rotateY(300deg);
+      }
+      @keyframes Rotate {
+        0% {
+          transform: rotateX(-30deg) rotateY(0deg);
+        }
+        100% {
+          transform: rotateX(-30deg) rotateY(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="father">
+      <img src="https://i.328888.xyz/2023/03/15/JFunz.jpeg" />
+      <img src="https://i.328888.xyz/2023/03/15/JFYLq.png" />
+      <img src="https://i.328888.xyz/2023/03/15/JFQxb.jpeg" />
+      <img src="https://i.328888.xyz/2023/03/15/JFTYV.jpeg" />
+      <img src="https://i.328888.xyz/2023/03/15/JFPFN.jpeg" />
+      <img src="https://i.328888.xyz/2023/03/15/JFMjo.jpeg" />
+    </div>
+  </body>
+</html>

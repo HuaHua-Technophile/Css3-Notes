@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>8-6-4opacity透明度属性值</title>
+    <style>
+      #div0 {
+        opacity: 0;
+      }
+      #div100 {
+        opacity: 100%;
+      }
+      #div50 {
+        opacity: 50%;
+      }
+      #div80 {
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      opacity属性值是CSS中的一个属性，它用来设置元素的不透明度。¹²³
+      opacity属性值是一个数字或者百分比，表示元素的透明度。
+      <div id="div0">0表示完全透明</div>
+      <div id="div100">1或者100%表示完全不透明</div>
+      <div id="div50">0.5或者50%表示半透明</div>
+      <div id="div80">例如，opacity: 0.8;表示元素有20%的透明度。</div>
+    </div>
+    <div>
+      注意：当使用opacity属性给元素的背景添加透明度时，它的所有子元素也会继承这个透明度。这可能会导致子元素中的文本难以阅读。如果你不想给子元素添加透明度，可以使用带有alpha通道的颜色值，例如rgba()或者hsla()。
+    </div>
+  </body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>3-13vertical-align行内元素基线对齐.html</title>
+    <style>
+      :root {
+        background: url(././img/粉色银河2886x4329.jpg) center/cover;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        color: antiquewhite;
+      }
+      div {
+        border: 1px solid black;
+        margin: 20px;
+      }
+      img[src="././img/米色台灯4608x3072.jpg"] {
+        display: inline-block !important;
+        height: 100px;
+      }
+      img[src="././img/蓝色星空星河6070x3414.jpg"] {
+        display: inline-block !important;
+        height: 120px;
+      }
+      .div1 img {
+        color: aqua;
+        vertical-align: auto;
+      }
+      .div2 img {
+        color: aquamarine;
+        vertical-align: baseline;
+      }
+      .div3 img {
+        color: bisque;
+        vertical-align: bottom;
+      }
+      .div4 img {
+        color: cadetblue;
+        vertical-align: middle;
+      }
+      .div5 img {
+        color: blueviolet;
+        vertical-align: sub;
+      }
+      .div6 img {
+        color: chartreuse;
+        vertical-align: super;
+      }
+      .text-container {
+        border: 1px solid #000;
+        box-sizing: border-box;
+        height: 150px;
+        width: 300px;
+        margin: 20px;
+      }
+      .text-container:after {
+        content: "";
+        display: inline-block;
+        /* 行内块元素才能生效基线对齐属性 */
+        width: 0;
+        height: 150px;
+        /* 和父元素高度相同 */
+        background: #000;
+        vertical-align: middle;
+      }
+      span.text {
+        vertical-align: middle;
+        /* 如果多行文本要对齐，那么也要设置middle */
+        display: inline-block;
+        /* 不设置行内块元素，则会两端对齐 */
+        max-width: 90%;
+        /* 不对块元素设置宽度则会居于顶上 */
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <img
+      src="https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2018/2/9/16179ec79b36dc79~tplv-t2oaga2asx-zoom-in-crop-mark:4536:0:0:0.image"
+      alt="" />
+    <p>
+      <a href="https://juejin.cn/post/6844903561780789255"
+        >稀土掘金：彻底搞定vertical-align垂直居中不起作用疑难杂症</a
+      >
+    </p>
+    <p>
+      <a
+        href="https://www.zhangxinxu.com/wordpress/2010/05/%E6%88%91%E5%AF%B9css-vertical-align%E7%9A%84%E4%B8%80%E4%BA%9B%E7%90%86%E8%A7%A3%E4%B8%8E%E8%AE%A4%E8%AF%86%EF%BC%88%E4%B8%80%EF%BC%89/"
+        >张鑫旭对CSS vertical-align的一些理解与认识（一）</a
+      >
+    </p>
+    <div class="div1">
+      <img src="././img/米色台灯4608x3072.jpg" alt="" /><span>auto</span>
+      <img src="././img/蓝色星空星河6070x3414.jpg" alt="" />
+    </div>
+    <div class="div2">
+      <img src="././img/米色台灯4608x3072.jpg" alt="" /><span>baseline</span>
+      <img src="././img/蓝色星空星河6070x3414.jpg" alt="" />
+    </div>
+    <div class="div3">
+      <img src="././img/米色台灯4608x3072.jpg" alt="" /><span>bottom</span>
+      <img src="././img/蓝色星空星河6070x3414.jpg" alt="" />
+    </div>
+    <div class="div4">
+      <img src="././img/米色台灯4608x3072.jpg" alt="" /><span>middle</span>
+      <img src="././img/蓝色星空星河6070x3414.jpg" alt="" />
+    </div>
+    <div class="div5">
+      <img src="././img/米色台灯4608x3072.jpg" alt="" /><span>sub</span>
+      <img src="././img/蓝色星空星河6070x3414.jpg" alt="" />
+    </div>
+    <div class="div6">
+      <img src="././img/米色台灯4608x3072.jpg" alt="" /><span>super</span>
+      <img src="././img/蓝色星空星河6070x3414.jpg" alt="" />
+    </div>
+    <div class="text-container">
+      <span class="text">我是单行文本我是单行文本</span>
+    </div>
+    <div class="text-container">
+      <span class="text"
+        >我是多行文本我是多行文本我是多行文本我是多行文本我是多行文本我是多行文本</span
+      >
+    </div>
+  </body>
+</html>

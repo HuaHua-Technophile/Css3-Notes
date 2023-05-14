@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>7-2-11：enabled：disabled：checked状态伪类</title>
+    <style>
+      input[type="checkbox"]:checked {
+        width: 20px;
+        height: 20px;
+      }
+      input[type="checkbox"]:disabled {
+        box-shadow: 2px 2px 4px red;
+      }
+      input[type="checkbox"]:enabled {
+        box-shadow: 0 0 5px blue;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      :enabled, :disabled,:checked是CSS的伪类选择器，用来表示元素的不同状态。
+      <br />:enabled表示可以被激活或者获取焦点的元素¹，
+      <br />:disabled表示不能被激活或者获取焦点的元素³，
+      <br />:checked表示被选中或者切换到开启状态的元素，比如单选框，复选框或者下拉列表中的选项²。
+      <br />你可以用这些伪类选择器来给元素添加不同的样式，比如颜色，边框，背景等。
+    </p>
+    <input type="checkbox" checked />Default Checked
+    <input type="checkbox" /> Unchecked
+    <input type="checkbox" disabled /> Disabled
+    <p>
+      你可以看到，被选中的复选框尺寸变20*20，被禁用的复选框有一个红色的阴影，可以被激活的复选框有一个蓝色的阴影
+    </p>
+  </body>
+</html>

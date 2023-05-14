@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>
+      14-3-2使用帧动画animation-name,animation-duration,animation-timing-function,animation-delay,animation-iteration-count,animation-fill-mode,animation-play-state
+    </title>
+  </head>
+  <body>
+    <style>
+      body {
+        background: #1e1e1e;
+      }
+      .ol_out > li {
+        padding: 5px;
+        border: 1px solid pink;
+        border-radius: 15px;
+        margin-bottom: 15px;
+      }
+      .ol_out > li > ol > li {
+        margin-bottom: 5px;
+      }
+    </style>
+    <ol class="ol_out">
+      <li>animation-name：指定要绑定到选择器的关键帧的名称。</li>
+      <li>
+        animation-duration：用于指定动画完成一个周期所花费的时间，可以用秒（s）或毫秒（ms）来表示。这个值必须是正数或者零，且单位是必须的。如果没有指定值，那么默认值是0s，此时动画仍然会执行（animationstart和animationend事件会被触发），但是否可见取决于animation-fill-mode属性的值
+      </li>
+      <li>
+        <ol>
+          animation-timing-function属性用于指定动画的速度曲线，即动画在每个周期内的变化速率。这个属性可以让动画更加平滑和自然
+          <li>linear：表示动画从头到尾保持匀速。</li>
+          <li>ease：表示动画开始和结束时慢，中间时快，是默认值。</li>
+          <li>ease-in：表示动画开始时慢，后面逐渐加速。</li>
+          <li>ease-out：表示动画结束时慢，前面逐渐减速。</li>
+          <li>ease-in-out：表示动画开始和结束时慢，中间时快。</li>
+          <li>
+            step-start：相当于steps(1,start)，表示动画在每个周期的开始时跳跃到结束状态。
+          </li>
+          <li>
+            step-end：相当于steps(1,end)，表示动画在每个周期的结束时跳跃到结束状态。
+          </li>
+          <li>
+            steps(int,start|end)：表示动画在每个周期内分成int个等长的步骤，每个步骤保持相同的状态，直到下一个步骤开始。第二个参数可以是start或end，表示步骤发生在每个区间的开始还是结束。
+          </li>
+          <li>
+            cubic-bezier(n,n,n,n)：表示自定义的三次贝塞尔曲线，用四个参数来控制曲线的形状。参数必须在0到1之间。
+          </li>
+        </ol>
+      </li>
+      <li>
+        animation-delay：指定动画开始之前的延迟时间，可以用秒（s）或毫秒（ms）来表示。单位是必须的。如果没有指定值，那么默认值是0s，此时动画会立即开始。如果指定了负值，那么动画会从中途开始，相当于已经播放了一段时间
+      </li>
+      <li>
+        animation-iteration-count:指定动画播放的次数，可以是一个正数或者无限次（infinite）。如果没有指定值，那么默认值是1，表示动画只播放一次。如果指定了非整数的值，那么动画会播放部分周期。例如，0.5表示动画只播放一半。负数是无效的
+      </li>
+      <li>
+        <ol>
+          animation-direction：于指定动画是否在每个周期内反向播放，或者交替正向和反向播放。如果没有指定值，那么默认值是normal，表示动画每次都正向播放
+          <li>normal：表示动画每次都正向播放，从头到尾。</li>
+          <li>reverse：表示动画每次都反向播放，从尾到头。</li>
+          <li>
+            alternate：表示动画交替正向和反向播放，第一次是正向，第二次是反向，以此类推。
+          </li>
+          <li>
+            alternate-reverse：表示动画交替反向和正向播放，第一次是反向，第二次是正向，以此类推。
+          </li>
+        </ol>
+      </li>
+      <li>
+        <ol>
+          animation-fill-mode：指定动画执行之前和之后如何为目标元素应用样式。CSS动画默认不会影响元素在第一个关键帧之前或最后一个关键帧之后的样式。animation-fill-mode属性可以覆盖这种行为
+          <li>
+            none：表示动画不会在执行之前或之后应用任何样式，元素会使用其他CSS规则来显示。这是默认值。
+          </li>
+          <li>
+            forwards：表示元素会保留动画最后一个关键帧设置的计算值。最后一个关键帧取决于animation-direction和animation-iteration-count的值。
+          </li>
+          <li>
+            backwards：表示元素会在动画开始之前（包括animation-delay期间）应用第一个相关关键帧设置的值。第一个相关关键帧取决于animation-direction的值。
+          </li>
+          <li>
+            both：表示动画会遵循forwards和backwards的规则，从而在两个方向上扩展动画属性。
+          </li>
+        </ol>
+      </li>
+      <li>
+        animation-play-state：指定动画是否正在运行或暂停。你可以使用这个属性在:hover中,或JavaScript中暂停或恢复一个动画。恢复一个暂停的动画会从暂停的时间点开始，而不是从头开始.running(默认值)：表示动画正在运行。paused：表示动画已经暂停
+      </li>
+    </ol>
+    <p>
+      animation属性是一个简写属性，可以同时设置上述所有的子属性，或者只设置其中的一部分。语法如下
+      <br />animation: name duration timing-function delay iteration-count
+      direction fill-mode play-state;
+    </p>
+    <div class="runfather">
+      <div class="runson"></div>
+    </div>
+    <style>
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+          transform: translateX(50px) scale(1);
+        }
+      }
+      .runfather {
+        width: 400px;
+        height: 400px;
+        border: 1px solid blueviolet;
+        position: relative;
+        animation-name: fadeIn;
+        animation-duration: 3s; /*一次动画的持续时间为3s*/
+        animation-delay: 2s; /*页面加载完后,延迟2s开始动画*/
+        animation-fill-mode: both; /*动画开始之前（包括animation-delay期间）应用第一个相关关键帧设置的值,并且保留动画最后一个关键帧设置的计算值*/
+        /* animation: fadeIn 3s 2s both; */
+      }
+      @keyframes run {
+        0% {
+          left: 0;
+          top: 0;
+        }
+        25% {
+          left: 100%;
+          top: 0;
+        }
+        50% {
+          left: 100%;
+          top: 100%;
+        }
+        75% {
+          left: 0;
+          top: 100%;
+        }
+        100% {
+          left: 0;
+          top: 0;
+        }
+      }
+      .runson {
+        width: 50px;
+        height: 50px;
+        background: pink;
+        position: absolute;
+        top: 0;
+        left: 0;
+        animation-name: run;
+        animation-duration: 5s; /*一次动画的持续时间为5s*/
+        animation-timing-function: linear; /*动画为匀速*/
+        animation-delay: 4s; /*页面加载完后,延迟4s开始动画*/
+        animation-iteration-count: infinite; /*无限次播放*/
+        animation-direction: alternate-reverse; /*表示动画交替反向和正向播放，第一次是反向，第二次是正向，以此类推。*/
+        /* animation: run 5s linear 4s infinite alternate-reverse;*/
+      }
+    </style>
+  </body>
+</html>

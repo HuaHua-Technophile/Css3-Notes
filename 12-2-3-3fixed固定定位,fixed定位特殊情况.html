@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>12-2-3-3fixed固定定位,fixed定位特殊情况</title>
+    <style type="text/css">
+      :root {
+        background: url(./img/米色台灯4608x3072.jpg) center fixed;
+        background-size: cover;
+        color: #c8c8c8;
+      }
+      .one {
+        font-size: 50px;
+        color: rgb(216, 132, 72);
+        text-align: center;
+        text-decoration: none;
+        background: rgba(133, 130, 0, 0.507);
+        border-radius: 30px;
+        padding: 5px 20px;
+      }
+      a:hover {
+        font-size: 52px;
+      }
+      h1 {
+        width: 600px;
+        margin: auto;
+        padding: 20px;
+      }
+      .adgif {
+        border: solid 2px;
+        border-radius: 30px;
+        /*广告裁切*/
+        position: fixed;
+        /*固定定位*/
+        bottom: 0%;
+        right: 0%;
+        /*并且设置偏移量*/
+      }
+      p {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>
+      <a class="one" href="http://www.luckincoffee.com/" target="_blank"
+        >点我前往瑞幸咖啡官网</a
+      >
+    </h1>
+    <aside class="ad">
+      <a href="http://www.luckincoffee.com/" target="_blank">
+        <img class="adgif" src="./img/瑞幸咖啡.gif" alt="瑞幸咖啡ad"
+      /></a>
+    </aside>
+    <p>
+      固定定位是绝对定位的一种特殊形式。它以浏览器窗口作为参照物来定义网页元素。
+    </p>
+    <p>
+      右下角的广告样例便被设置了固定定位。不论浏览器如何滚动、大小如何变化，该元素始终显示在浏览器窗口的固定位置
+    </p>
+    <ol>
+      fixed定位有以下几种特殊情况
+      <li>
+        如果没有指定元素的left/top/right/bottom属性，那么元素会保持它在文档流中的位置，但是会脱离文档流，不占据空间
+      </li>
+      <li>
+        如果元素的父元素有transform属性，那么元素会相对于父元素固定，而不是相对于窗口
+      </li>
+      <li>如果元素的高度超过窗口的高度，那么元素会出现滚动条，而不是被裁剪</li>
+      <li>
+        如果需要在某个区域内固定元素，而不是一直固定，那么可以使用JavaScript来判断滚动距离，并动态改变元素的position属性
+      </li>
+    </ol>
+  </body>
+</html>

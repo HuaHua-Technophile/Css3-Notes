@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>
+      7-2-9-5：nth-of-type(n)第n个同类型伪类：nth-last-of-type(n)倒数第n个同类型伪类
+    </title>
+    <style>
+      .test:nth-of-type(1) {
+        border: 1px solid black;
+        width: 20vw;
+        /* 选中了整个父元素 */
+      }
+      .test p:nth-of-type(2) {
+        background: #000;
+        /* 选中了第二个P */
+      }
+      .test div:nth-of-type(3) {
+        border: 3px black dotted;
+        /* 选中了第三个子元素div */
+      }
+      .test :nth-of-type(6) {
+        color: red;
+        /* 选中了每种元素的第四个 */
+      }
+      .test :nth-of-type(3n) {
+        /* 每3个选一个 */
+        font-size: 30px !important;
+      }
+      .test :nth-of-type(n + 3) {
+        text-align: center;
+        /* 选中了每种元素的第3个开始(n从0递增到无穷大) */
+      }
+      .test :nth-of-type(-n + 4) {
+        text-shadow: 3px 3px 5px rgb(0, 204, 255);
+        /* 选中了每种元素的前4个(n从负无穷递增到0) */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="test">
+      <p>1</p>
+      <p>2</p>
+      <p>3</p>
+      <p>4</p>
+      <p>5</p>
+      <p>6</p>
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <header>1</header>
+      <header>2</header>
+      <header>3</header>
+      <header>4</header>
+      <header>5</header>
+      <header>6</header>
+      <section>1</section>
+      <section>2</section>
+      <section>3</section>
+      <section>4</section>
+      <section>5</section>
+      <section>6</section>
+      <footer>1</footer>
+      <footer>2</footer>
+      <footer>3</footer>
+      <footer>4</footer>
+      <footer>5</footer>
+      <footer>6</footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>8-4-1initial初始属性值</title>
+    <style>
+      p {
+        color: red;
+        font-size: 24px;
+      }
+      span {
+        color: initial;
+        font-size: initial;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      initial是一个CSS关键字，用于表示一个属性的初始值，也就是规范中定义的默认值¹。例如，color属性的初始值是black，font-size属性的初始值是medium²。
+    </p>
+    <p>
+      使用initial关键字可以重置一个属性的值，使其恢复到初始状态，无论它是否被继承或层叠¹。例如，如果你想让一个元素的颜色和字体大小都恢复到初始值，你可以这样写：
+    </p>
+    <p>
+      这是一段红色大号文字。<span>这是一段被恢复初始样式的黑色中号文字。</span>
+    </p>
+  </body>
+</html>

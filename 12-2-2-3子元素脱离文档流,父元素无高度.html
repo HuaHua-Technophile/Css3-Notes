@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>12-2-2-3子元素脱离文档流,父元素无高度</title>
+    <style type="text/css">
+      :root {
+        background: url(./img/蓝色星空星河6070x3414.jpg) center fixed;
+        background-size: cover;
+        color: #c8c8c8;
+      }
+      .father {
+        background: rgba(0, 0, 0, 0);
+        border: solid 10px rgba(3, 0, 197, 0.466);
+        border-radius: 70px;
+      }
+      .box1,
+      .box2,
+      .box3 {
+        box-sizing: border-box;
+        height: 200px;
+        margin: 30px;
+        padding: 50px;
+        line-height: 100px;
+        font-size: 30px;
+        text-align: center;
+        border: solid #c8c8c8;
+        border-radius: 50px;
+        background: rgba(190, 0, 248, 0.247);
+        box-shadow: 15px 15px 20px #05004d;
+      }
+      .box1,
+      .box2,
+      .box3 {
+        float: left;
+      }
+      p {
+        font-size: 30px;
+        text-shadow: 5px 5px 5px #570048;
+        clear: both;
+        /*清除三个浮动对于p段落的影响*/
+      }
+    </style>
+  </head>
+  <body>
+    <div class="father">
+      <div class="box1">box1</div>
+      <div class="box2">box2</div>
+      <div class="box3">box3</div>
+    </div>
+    <p>
+      由于受到子元素浮动的影响，父元素只显示了像一条直线的边框
+      <br />即父元素不能自适应子元素的高度。(12-2-2-2中，父元素还有p段落撑起高度)
+    </p>
+  </body>
+</html>

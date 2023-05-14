@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>7-2-9：only-child唯一子元素伪类(独生子)</title>
+    <style type="text/css">
+      span {
+        display: inline-block;
+        height: 50px;
+        width: 50px;
+        border: 1px solid black;
+      }
+      span:only-child {
+        border: 5px solid pink;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      only-child选择器是CSS的一个伪类，它可以匹配没有任何兄弟元素的元素(独生子)
+    </p>
+    <p>
+      这个选择器等效于:first-child:last-child或者:nth-child(1):nth-last-child(1)，但是权重会低一点
+    </p>
+    <div>
+      <span>独生子</span>
+    </div>
+    <div>
+      <span>双胞胎1</span>
+      <span>双胞胎2</span>
+    </div>
+  </body>
+</html>

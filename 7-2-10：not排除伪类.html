@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>7-2-10：not排除伪类</title>
+    <style type="text/css">
+      :root {
+        background-color: #1e1e1e;
+        color: #c8c8c8;
+      }
+
+      .one {
+        text-shadow: 4px 4px 10px rgb(228, 95, 255);
+      }
+
+      p:not(.one) {
+        color: rgb(0, 219, 0);
+      }
+      /*类名不是`.one`的 <p>元素(必须+p限定范围)*/
+
+      h1:not(.two) {
+        color: rgb(255, 120, 67);
+      }
+
+      body :not(p) {
+        text-decoration: underline;
+      }
+      /*body中的非<p>元素(必须+body限定范围)*/
+
+      body :not(div):not(.one) {
+        font-size: 30px;
+        text-shadow: 2px 2px 10px rgb(51, 255, 0);
+      }
+      /*既不是<div>元素也没有.one的类(必须+body限定范围)*/
+    </style>
+  </head>
+
+  <body>
+    <p>not选择器用于匹配非指定元素/非指定选择器之外的所有元素(p段落文本)</p>
+    <p>p段落文本</p>
+    <p class="one">定义了“one”类的p段落文本</p>
+    <h1 class="two">设定了“two”类的h1标题文本</h1>
+    <h1>h1标题文本</h1>
+    <h1>h1标题文本</h1>
+    <div>div区块容器文本</div>
+  </body>
+</html>

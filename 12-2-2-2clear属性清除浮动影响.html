@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>12-2-2-2clear属性清除浮动影响</title>
+    <style type="text/css">
+      :root {
+        background: url(./img/蓝色星空星河6070x3414.jpg) center fixed;
+        background-size: cover;
+        color: #c8c8c8;
+      }
+      .father {
+        background: rgba(0, 0, 0, 0);
+        border: solid 10px rgba(3, 0, 197, 0.466);
+        border-radius: 70px;
+        /*必须设置父元素盒子装着零散的元素，才能使下面的示例生效*/
+      }
+      .box1,
+      .box2,
+      .box3 {
+        box-sizing: border-box;
+        height: 200px;
+        margin: 30px;
+        padding: 50px;
+        line-height: 100px;
+        font-size: 30px;
+        text-align: center;
+        border: solid #c8c8c8;
+        border-radius: 50px;
+        background: rgba(190, 0, 248, 0.247);
+        box-shadow: 15px 15px 20px #05004d;
+      }
+      .box1,
+      .box2,
+      .box3 {
+        float: left;
+        /*设置浮动*/
+      }
+      p {
+        font-size: 30px;
+        text-shadow: 5px 5px 5px #570048;
+        clear: both;
+        /*清除三个浮动对于p段落的影响*/
+      }
+    </style>
+  </head>
+  <body>
+    <div class="father">
+      <div class="box1">box1</div>
+      <div class="box2">box2</div>
+      <div class="box3">box3</div>
+      <p>
+        float属性可以使得元素浮动，将会脱离标准文档流的控制。
+        <br />float的常用参数值：left(左浮动)、right(右浮动)、none(默认，不浮动)。
+        <br />拖动页面大小，可以发现这些p段落文本将环绕盒子，出现图文混排的网页效果
+      </p>
+      <p>
+        由于浮动元素不再占用原文档流的位置,使用浮动后会影响相邻的固定元素。例如6-1产生位置上的变化。
+        <br />此时，需要使用clear清除浮动影响。该属性也有属性值：
+        <br />left：不允许左侧有浮动元素(清除左侧浮动的影响)
+        <br />right：不允许右侧有浮动元素(清除左侧浮动的影响)
+        <br />both：同时清除左右两侧浮动的影响
+      </p>
+    </div>
+  </body>
+</html>

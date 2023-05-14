@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>7-1-2样式表种类</title>
+    <!-- 内嵌式------------------------ -->
+    <style>
+      .p2 {
+        color: green;
+      }
+    </style>
+    <!-- 外链式link------------------------------ -->
+    <link rel="stylesheet" href="./7-1-2-1.css" />
+    <!-- 外链式 -->
+    <style>
+      @import url(./7-1-2-2.css);
+    </style>
+  </head>
+  <body>
+    <p style="color: red">样式表有：行内式</p>
+    <p class="p2">内嵌式</p>
+    <p class="p3">外链式：link</p>
+    <p class="p4">外链式：@import</p>
+    <p>
+      link是HTML提供的标签，不仅可以加载CSS文件，还可以定义RSS、rel连接属性等；@import是CSS提供的语法规则，只有导入样式表的作用。
+      <br />
+      加载页面时，link标签引入的CSS被同时加载；@import引入的CSS将在页面加载完毕后被加载。
+      <br />
+      兼容性方面，link标签没有兼容性问题，而@import只在IE5以上才能识别。
+    </p>
+  </body>
+</html>

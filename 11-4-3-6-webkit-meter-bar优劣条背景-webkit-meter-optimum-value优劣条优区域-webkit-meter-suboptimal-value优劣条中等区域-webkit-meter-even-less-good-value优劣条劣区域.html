@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>
+      11-4-3-6-webkit-meter-bar优劣条背景-webkit-meter-optimum-value优劣条优区域-webkit-meter-suboptimal-value优劣条中等区域-webkit-meter-even-less-good-value优劣条劣区域
+    </title>
+    <style>
+      .deal ::-webkit-meter-bar {
+        height: 5vh;
+        background: pink;
+        border: 1px solid skyblue;
+        border-radius: 0;
+      }
+      .deal ::-webkit-meter-optimum-value {
+        background: linear-gradient(45deg, lime, green);
+      }
+      .deal ::-webkit-meter-suboptimum-value {
+        background: linear-gradient(45deg, skyblue, blue);
+      }
+      .deal ::-webkit-meter-even-less-good-value {
+        background: linear-gradient(45deg, pink, red);
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      默认的：<meter
+        low="60"
+        high="80"
+        optimum="100"
+        max="100"
+        value="92"></meter>
+      <meter low="60" high="80" optimum="100" max="100" value="72"></meter>
+      <meter low="60" high="80" optimum="100" max="100" value="52"></meter>
+    </p>
+    <p class="deal">
+      处理的：<meter
+        low="60"
+        high="80"
+        optimum="100"
+        max="100"
+        value="92"></meter>
+      <meter low="60" high="80" optimum="100" max="100" value="72"></meter>
+      <meter low="60" high="80" optimum="100" max="100" value="52"></meter>
+    </p>
+  </body>
+</html>

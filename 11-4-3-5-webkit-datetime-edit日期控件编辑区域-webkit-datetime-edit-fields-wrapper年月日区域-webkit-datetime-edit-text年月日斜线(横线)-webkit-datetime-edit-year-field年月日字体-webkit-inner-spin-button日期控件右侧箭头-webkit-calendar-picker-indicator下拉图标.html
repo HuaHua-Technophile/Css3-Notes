@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>
+      11-4-3-5-webkit-datetime-edit日期控件编辑区域-webkit-datetime-edit-fields-wrapper年月日区域-webkit-datetime-edit-text年月日斜线(横线)-webkit-datetime-edit-year-field年月日字体-webkit-inner-spin-button日期控件右侧箭头-webkit-calendar-picker-indicator下拉图标
+    </title>
+    <style>
+      body {
+        background: #1e1e1e;
+      }
+      #date1 {
+        border: 0;
+        padding: 0;
+      }
+      #date1::-webkit-datetime-edit {
+        background: #1e1e1e;
+      }
+      #date1::-webkit-datetime-edit-fields-wrapper {
+        background-color: pink;
+      }
+      #date1::-webkit-datetime-edit-text {
+        color: blue;
+        text-shadow: 0 0 3px black;
+        box-shadow: 0 0 3px black;
+      }
+      #date1::-webkit-datetime-edit-year-field {
+        color: orange;
+        text-shadow: 0 0 10px orange;
+      }
+      #date1::-webkit-datetime-edit-month-field {
+        color: greenyellow;
+        text-shadow: 0 0 10px greenyellow;
+      }
+      #date1::-webkit-datetime-edit-day-field {
+        color: skyblue;
+        text-shadow: 0 0 10px skyblue;
+      }
+      #date1::-webkit-inner-spin-button {
+        visibility: hidden;
+      }
+      #date1::-webkit-calendar-picker-indicator {
+        background: pink;
+        box-shadow: 0 0 3px black;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="date" id="date1" /><br />
+    <input type="date" />
+  </body>
+</html>

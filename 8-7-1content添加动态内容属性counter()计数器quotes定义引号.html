@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>8-7-1content添加动态内容属性counter()计数器quotes定义引号</title>
+  </head>
+  <body>
+    <p>
+      content属性是CSS中的一个属性，它用来给元素或者伪元素添加生成的内容。
+      content属性可以接受以下值：
+    </p>
+    <p>
+      <li>normal或者none，表示不添加任何内容。</li>
+      <li>一个字符串，表示添加指定的文本内容。</li>
+      <li>一个图片，表示添加指定的图片内容。</li>
+      <li>一个counter()计数器，表示添加指定的计数器内容。</li>
+      <li>一个attr()函数，表示添加指定的元素属性值。</li>
+      <li>一个open-quote或者close-quote，表示添加指定的引号内容。</li>
+      <li>一个列表，表示添加多个内容值。</li>
+    </p>
+    <p>
+      如果你有一个文档，里面有多个标题和子标题，你可以用content属性和计数器来给它们添加编号，并生成一个目录索引。具体的步骤如下：
+    </p>
+    <p>
+      <li>
+        在文档的根元素上，使用counter-reset属性来初始化一个计数器，比如counter-reset:
+        section
+      </li>
+      <li>
+        在每个标题元素上，使用counter-increment属性来增加计数器的值，比如counter-increment:section
+      </li>
+      <li>
+        在每个标题元素的伪元素::before上，使用content属性和counter()函数来显示计数器的值，比如content:counter(section)"."
+      </li>
+    </p>
+    <p>
+      这样就可以实现一个动态的目录索引，它会根据文档内容自动更新编号和链接地址
+    </p>
+    <style>
+      ul {
+        list-style: none; /*清除默认列表前小点*/
+      }
+      li {
+        counter-increment: a 1; /* 设计递增函数,起始值为1 */
+      }
+      li:before {
+        content: counter(a) ".";
+      }
+      li li {
+        counter-increment: b 1; /* 设计第二级的递增函数,起始值为1 */
+      }
+      li li::before {
+        content: counter(a) "~"counter(b) ".";
+      }
+      li li li {
+        counter-increment: c 1; /* 设计第三级的递增函数,起始值为1 */
+      }
+      li li li::before {
+        content: counter(a) "~"counter(b) "-" counter(c) ".";
+      }
+    </style>
+    <ul>
+      <li>
+        新闻
+        <ul>
+          <li>国际新闻</li>
+          <li>
+            国内新闻
+            <ul>
+              <li>分类1</li>
+              <li>分类2</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>交互</li>
+    </ul>
+    <style>
+      q {
+        quotes: "<" ">" "'" "'";
+      }
+      q::before {
+        content: open-quote;
+      }
+      q::after {
+        content: close-quote;
+      }
+    </style>
+    <p>
+      quote属性是CSS中的一个属性，它用来指定引用时使用的引号类型。quote属性可以接受以下值：
+    </p>
+    <li>none，表示不使用任何引号。</li>
+    <li>auto，表示根据元素的语言属性（lang）自动选择合适的引号。</li>
+    <li>
+      一个或多个字符串对，表示不同层级的引号样式。第一对字符串表示最外层的引号，第二对字符串表示第一层嵌套的引号，以此类推。
+    </li>
+    <p>
+      例如，quote: "<" ">" "'" "'";表示外层使用括号,内层使用单引号作为引号样式。
+    </p>
+    <p>
+      quote属性通常和content属性的open-quote和close-quote值一起使用，来给元素或者伪元素添加引号,这样就可以给q元素添加双引号，如果q元素嵌套了其他q元素，就会使用单引号。
+    </p>
+    <q>我是一段<q>引用</q></q>
+    <style>
+      a::after {
+        content: "(" attr(href) ")";
+      }
+    </style>
+    <a href="https://www.example.com/">我是一个超链接</a>
+  </body>
+</html>

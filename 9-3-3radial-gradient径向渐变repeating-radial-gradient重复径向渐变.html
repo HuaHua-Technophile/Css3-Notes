@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://i.328888.xyz/2023/04/14/ixDL13.jpeg"
+      type="image/png" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link
+      href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/css/bootstrap.css"
+      rel="stylesheet" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0-alpha3/js/bootstrap.bundle.js"></script>
+    <title>
+      9-3-3radial-gradient径向渐变repeating-radial-gradient重复径向渐变
+    </title>
+    <style>
+      div {
+        width: 90vw;
+        height: 30vh;
+        margin: 2.5vw;
+      }
+      .div1 {
+        background-image: radial-gradient(
+          circle at 50% 0,
+          red,
+          blue
+        ); /*创建了一个圆形的径向渐变，从中心的红色过渡到边缘的蓝色：*/
+      }
+      .div2 {
+        background-image: repeating-radial-gradient(
+          10% 10% at 10%,
+          red,
+          yellow 10%,
+          green 15%
+        ); /*创建了一个重复的径向渐变,未指定为圆形，由红色、黄色和绿色组成：*/
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <li>
+        径向渐变是一种表示两种或多种颜色从中心点向外过渡的图片，可以用于背景或其他图形元素
+      </li>
+      <li>径向渐变可以使用 radial-gradient() 函数来创建，其语法如下：</li>
+      background-image: radial-gradient(shape size at
+      position,start-color,...,last-color);
+      <li>
+        其中，shape 是一个关键词，用于指定渐变的形状，可以是 circle 或 ellipse
+      </li>
+      <li>
+        size是一个关键词，用于指定渐变的大小，可以是closest-side、farthest-side、closest-corner或farthest-corner
+        若只指定一个px值,则为圆形;若指定了圆形circle,则只能再设置一个px值;只指定一个百分比不生效
+      </li>
+      <li>
+        position是一个关键词或值，用于指定渐变的中心位置；start-color和last-color是颜色值，用于指定渐变的起始颜色和终止颜色
+      </li>
+      <li>
+        如果要创建重复的径向渐变，可以使用 repeating-radial-gradient()
+        函数，其语法和 radial-gradient() 函数相同
+      </li>
+    </p>
+    <div class="div1"></div>
+    <div class="div2"></div>
+  </body>
+</html>
